@@ -29,17 +29,15 @@ public class WorldObject : MonoBehaviour {
                 cols[i].gameObject.GetComponent<WorldObject>().damage(damageValue);
             }
         }
-        
+
         if (checkGround() && isThrown) {
             Debug.DrawLine(transform.position, hit.point, Color.magenta);
             var reflectedDir = 0.38f * (velocity - 2 * Vector3.Dot(velocity, hit.normal) * (Vector3)hit.normal);
-            if (reflectedDir.magnitude < 0.1f) {
+            if (reflectedDir.magnitude < 0.1f || (Vector3)hit.normal == Vector3.up) {
                 velocity = Vector3.zero;
                 isThrown = false;
             }
             else velocity = reflectedDir;
-
-            Debug.Log("ground : "+hit.collider.gameObject.name);
         }
 
         transform.position += velocity * Time.deltaTime;
@@ -55,12 +53,12 @@ public class WorldObject : MonoBehaviour {
         hit = Physics2D.Raycast(transform.position, dir, size.y, Game.instance.groundLayer);
         return hit;
     }
-    
+
     Collider2D[] checkWorldObject() {
         var cols = new Collider2D[0];
         if (checkRect)
-            cols = Physics2D.OverlapAreaAll(transform.position-size, transform.position+size, Game.instance.worldObjectLayer);
-        else 
+            cols = Physics2D.OverlapAreaAll(transform.position - size, transform.position + size, Game.instance.worldObjectLayer);
+        else
             cols = Physics2D.OverlapCircleAll(transform.position, size.y, Game.instance.worldObjectLayer);
         return cols;
     }
@@ -74,7 +72,14 @@ public class WorldObject : MonoBehaviour {
 
     public void destroy() {
         isAlive = false;
-        // TODO : create blood
+        var amount = 10;
+        for (var i = 0; i < amount; ++i) {
+            var b = Instantiate(Game.instance.bloodInstance, transform.position, Quaternion.identity) as Blood;
+            b.init((Vector3)hit.normal
+                    + Vector3.right * Random.Range(-0.2f, 0.2f) * Mathf.Sign(hit.normal.x)
+                    + Vector3.up * Random.Range(-0.2f, 0.2f) * Mathf.Sign(hit.normal.y),
+                    (amount*10 - i));
+        }
         gameObject.SetActive(false);
     }
 

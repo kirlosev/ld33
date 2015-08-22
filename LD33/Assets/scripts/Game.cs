@@ -7,6 +7,7 @@ public class Game : MonoBehaviour {
     public LayerMask worldObjectLayer = 1 << 9;
     public Monster monster;
     public float gravity = -9f;
+    public Blood bloodInstance;
 
     void Awake() {
         instance = this;
