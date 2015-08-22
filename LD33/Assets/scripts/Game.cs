@@ -6,6 +6,7 @@ public class Game : MonoBehaviour {
     public LayerMask groundLayer = 1 << 8;
     public LayerMask worldObjectLayer = 1 << 9;
     public LayerMask bloodLayer = 1 << 10;
+    public LayerMask skyscrapperLayer = 1 << 11;
     public Monster monster;
     public float gravity = -9f;
     public Blood bloodInstance;

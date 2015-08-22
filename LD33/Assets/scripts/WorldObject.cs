@@ -12,6 +12,7 @@ public class WorldObject : MonoBehaviour {
     public bool checkRect = true;
     RaycastHit2D hit;
     public float damageValue = 1f;
+    public bool canBlood = false;
 
     void Awake() {
         size = GetComponent<Collider2D>().bounds.extents;

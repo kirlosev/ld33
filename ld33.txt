@@ -33,8 +33,9 @@ TODO :
 [ ]     . rockets
 [ ]     . iron man - boss ? just kidding????
 [ ] GAMEPLAY : punch or throw world object ?
-[ ] GAMEPLAY : jumping on the face of the building (not on the side) ?
+[.] GAMEPLAY : jumping on the face of the building (not on the side) ?
 [ ] GAMEPLAY : depending jump force of duration of mouse btn pressing and blood amount
+[ ] GAMEPLAY : moving a monster by WASD or something like that ? meh
 [ ] LOGIC : instantiating way too much blood particles whem sittingOnObject still != null
 [ ] GRAPHICS : draw a background (objects for parallax)
 [ ] GRAPHICS : monster with animations
@@ -60,3 +61,4 @@ TODO :
 [ ] UI : health
 [ ] UI : menu
 [ ] LEVEL : generating a level
+[ ] GRAPHICS : decals for blood and explosions
