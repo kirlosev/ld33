@@ -37,7 +37,9 @@ public class Ground : MonoBehaviour {
             bc.size = size * 2f;
         }
         else {
-            transform.position -= Vector3.up * (size.y + 1f);
+            var repos = transform.position;
+            repos.y = -1 * (size.y + 1f);
+            transform.position = repos;
         }
     }
 }

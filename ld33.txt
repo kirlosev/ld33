@@ -32,15 +32,18 @@ TODO :
 [ ]     . tank
 [ ]     . rockets
 [ ]     . iron man - boss ? just kidding????
+[ ] DESIGN : humanity
+[ ]     . people
+[ ]     . cars
 [ ] GAMEPLAY : punch or throw world object ?
 [X] GAMEPLAY : jumping on the face of the building (not on the side) ?
 [ ] GAMEPLAY : depending jump force of duration of mouse btn pressing and blood amount
 [ ] GAMEPLAY : moving a monster by WASD or something like that ? meh
 [ ] LOGIC : instantiating way too much blood particles whem sittingOnObject still != null
-[ ] GRAPHICS : draw a background (objects for parallax)
+[X] GRAPHICS : draw a background (objects for parallax)
 [ ] GRAPHICS : monster with animations
 [ ]     .
-[ ] GRAPHICS : more humans
+[ ] GRAPHICS : humans
 [ ] GRAPHICS : military machines
 [ ]     . 
 [ ] LOGIC : AI for military
@@ -62,3 +65,5 @@ TODO :
 [ ] UI : menu
 [ ] LEVEL : generating a level
 [ ] GRAPHICS : decals for blood and explosions
+[ ] GRAPHICS : jump trajectory
+[ ] LOGIC : camera shake
