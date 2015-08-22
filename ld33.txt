@@ -1,0 +1,26 @@
+theme : YOU ARE THE MONSTER
+
+2D
+Platoformer || TopDown
+ACTION!
+
+what does "monster" means? 
+
+> platformer in which you control a giant monster who wants a blood (like that dino in the last Jurassic Park Movie) :
+    jump on people and helicopters
+    collect blood
+    survive against military as long as you can
+
+^ let's do this. because it's the best i can get :( and pretty fun
+
+> graphics
+    low res for pixelart? make everything tiny - good because i am not a good artist =\
+    limited palette
+
+> mechanics
+    jump on people and helicopters
+    collect blood. blood needs to make jumps
+    survive against military as long as you can
+
+TODO : 
+[]  make todo list
