@@ -43,7 +43,6 @@ public class MonsterMove : MonoBehaviour {
         }
         else if (checkWorldObject()) {
             if (hit.collider.GetComponent<WorldObject>() != previousObject) {
-                Debug.Log("world object");
                 velocity = Vector3.zero;
                 inAir = false;
                 transform.position = (Vector3)hit.point

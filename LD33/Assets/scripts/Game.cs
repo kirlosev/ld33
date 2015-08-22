@@ -11,6 +11,7 @@ public class Game : MonoBehaviour {
     public float gravity = -9f;
     public Blood bloodInstance;
     public AudioSource sfxSound;
+    public CameraMove gameplayCam;
 
     void Awake() {
         instance = this;
