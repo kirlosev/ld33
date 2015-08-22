@@ -1,7 +1,7 @@
 theme : YOU ARE THE MONSTER
 
 2D
-Platoformer || TopDown
+Platformer || TopDown
 ACTION!
 
 what does "monster" means? 
@@ -21,6 +21,9 @@ what does "monster" means?
     jump on people and helicopters
     collect blood. blood needs to make jumps
     survive against military as long as you can
+    box2d ? meh
 
 TODO : 
 []  make todo list
+[]  punch or throw world object
+[]  jumping on the face of the building (not on the side) ?

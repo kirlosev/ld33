@@ -11,7 +11,10 @@ public class WorldObject : MonoBehaviour {
     bool isThrown = false;
 
     void Awake() {
-        size = GetComponent<BoxCollider2D>().bounds.extents;
+        if (GetComponent<BoxCollider2D>() != null) 
+            size = GetComponent<BoxCollider2D>().bounds.extents;
+        else
+            size = GetComponent<CircleCollider2D>().bounds.extents;
     }
 
     void Update() {
@@ -20,7 +23,8 @@ public class WorldObject : MonoBehaviour {
         }
 
         transform.position += velocity * Time.deltaTime;
-        velocity.y += Game.instance.gravity * Time.deltaTime;
+        if (isThrown)
+            velocity.y += Game.instance.gravity * Time.deltaTime;
     }
 
     public virtual void calcVelocity() {

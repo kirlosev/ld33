@@ -10,4 +10,11 @@ public class Game : MonoBehaviour {
     void Awake() {
         instance = this;
     }
+
+    void Update() {
+        // TODO : remove from release
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            Application.LoadLevel(Application.loadedLevel);
+        }
+    }
 }
