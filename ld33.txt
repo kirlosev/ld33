@@ -24,8 +24,39 @@ what does "monster" means?
     box2d ? meh
 
 TODO : 
-[X] make todo list
-[ ] punch or throw world object ?
-[ ] jumping on the face of the building (not on the side) ?
-[ ] depending jump force of duration of mouse btn pressing and blood amount
-[ ] instantiating way too much blood particles whem sittingOnObject still != null
+[ ] DESIGN : session loop : start, jump, throw, collect blood, stay alive as long as possible. 
+    at a certain point of city destruction - beat iron man by throwing a stuff in his face
+[ ] DESIGN : balancing!
+[ ] DESIGN : military things
+[ ]     . helicopter
+[ ]     . tank
+[ ]     . rockets
+[ ]     . iron man - boss ? just kidding????
+[ ] GAMEPLAY : punch or throw world object ?
+[ ] GAMEPLAY : jumping on the face of the building (not on the side) ?
+[ ] GAMEPLAY : depending jump force of duration of mouse btn pressing and blood amount
+[ ] LOGIC : instantiating way too much blood particles whem sittingOnObject still != null
+[ ] GRAPHICS : draw a background (objects for parallax)
+[ ] GRAPHICS : monster with animations
+[ ]     .
+[ ] GRAPHICS : more humans
+[ ] GRAPHICS : military machines
+[ ]     . 
+[ ] LOGIC : AI for military
+[ ]     .
+[ ] SOUNDS : jump sound
+[ ] SOUNDS : landing sound
+[ ] SOUNDS : killing a human sound
+[ ] SOUNDS : explosion sound
+[ ] LOGIC : explosions
+[ ] GRAPHICS : explosions
+[ ] LOGIC : smoke
+[ ] GRAPHICS : smoke
+[ ] GRAPHICS : more skyscrappers
+[ ] LOGIC : AI for humans
+[ ] UI : blood counter
+[ ] UI : jumping direction
+[ ] UI : throwing direction
+[ ] UI : health
+[ ] UI : menu
+[ ] LEVEL : generating a level

@@ -1,10 +1,11 @@
 fileFormatVersion: 2
 guid: d36f6898acbdee54294fd234b70ecfb9
-timeCreated: 1440236400
+timeCreated: 1440251323
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: blood_particle
+    21300002: particles_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -54,6 +55,16 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 12
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: particles_0
+      rect:
+        serializedVersion: 2
+        x: 4
         y: 12
         width: 4
         height: 4

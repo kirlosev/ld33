@@ -1,14 +1,17 @@
 fileFormatVersion: 2
-guid: 5fa0cdecc03ce374bafca7e19466e6c2
-timeCreated: 1440251312
+guid: 20d88364aedbdbe47ab5d64a58de8fe3
+timeCreated: 1440251361
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: worldobjects_0
-    21300002: worldobjects_1
-    21300004: worldobjects_2
-    21300006: worldobjects_3
-    21300008: worldobjects_4
+    21300000: background_0
+    21300002: background_1
+    21300004: background_2
+    21300006: background_3
+    21300008: background_4
+    21300010: background_5
+    21300012: background_6
+    21300014: background_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -32,7 +35,7 @@ TextureImporter:
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -3
-  maxTextureSize: 128
+  maxTextureSize: 256
   textureSettings:
     filterMode: 0
     aniso: 16
@@ -48,59 +51,89 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 8
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: worldobjects_0
+    - name: background_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 10
-        width: 32
-        height: 16
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: worldobjects_1
+    - name: background_1
       rect:
         serializedVersion: 2
-        x: 34
-        y: 24
-        width: 4
-        height: 8
+        x: 64
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: worldobjects_2
+    - name: background_2
       rect:
         serializedVersion: 2
-        x: 41
-        y: 24
-        width: 6
-        height: 8
+        x: 128
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: worldobjects_3
+    - name: background_3
       rect:
         serializedVersion: 2
-        x: 49
-        y: 25
-        width: 6
-        height: 7
+        x: 192
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: worldobjects_4
+    - name: background_4
       rect:
         serializedVersion: 2
-        x: 58
-        y: 24
-        width: 4
-        height: 8
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: background_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: background_6
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: background_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

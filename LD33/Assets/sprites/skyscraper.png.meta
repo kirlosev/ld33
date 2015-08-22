@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: f29253a30093d3c47acd1d63ec887fb9
-timeCreated: 1440241663
+timeCreated: 1440251300
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: skyscraper_0
+    21300002: skyscraper_1
+    21300004: skyscraper_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -27,8 +29,8 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
-  maxTextureSize: 128
+  textureFormat: -3
+  maxTextureSize: 256
   textureSettings:
     filterMode: 0
     aniso: 16
@@ -44,7 +46,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 4
+  spritePixelsToUnits: 8
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
@@ -53,10 +55,30 @@ TextureImporter:
     - name: skyscraper_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 16
         y: 0
         width: 32
         height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skyscraper_1
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 0
+        width: 28
+        height: 127
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skyscraper_2
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 0
+        width: 48
+        height: 127
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
