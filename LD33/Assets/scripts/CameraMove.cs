@@ -9,6 +9,6 @@ public class CameraMove : MonoBehaviour {
     void LateUpdate() {
         var nextPos = target.transform.position;
         nextPos.z = transform.position.z;
-        transform.position = Vector3.SmoothDamp(transform.position, nextPos, ref velocity, smoothTime); ;
+        transform.position = Vector3.SmoothDamp(transform.position, nextPos, ref velocity, smoothTime);
     }
 }

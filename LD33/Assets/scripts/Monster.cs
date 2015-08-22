@@ -6,4 +6,5 @@ public class Monster : Character {
     public MonsterInput input;
     public float jumpForce = 10f;
     public float throwForce = 10f;
+    public float damageValue = 5f;
 }

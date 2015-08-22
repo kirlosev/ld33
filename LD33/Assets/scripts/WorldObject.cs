@@ -9,17 +9,37 @@ public class WorldObject : MonoBehaviour {
     public Vector3 size;
     Vector3 velocity;
     bool isThrown = false;
+    public bool checkRect = true;
+    RaycastHit2D hit;
+    public float damageValue = 1f;
 
     void Awake() {
-        if (GetComponent<BoxCollider2D>() != null) 
-            size = GetComponent<BoxCollider2D>().bounds.extents;
-        else
-            size = GetComponent<CircleCollider2D>().bounds.extents;
+        size = GetComponent<Collider2D>().bounds.extents;
     }
 
     void Update() {
         if (!isThrown) {
             calcVelocity();
+        }
+        else {
+            var cols = checkWorldObject();
+            for (var i = 0; i < cols.Length; ++i) {
+                if (gameObject == cols[i].gameObject)
+                    continue;
+                cols[i].gameObject.GetComponent<WorldObject>().damage(damageValue);
+            }
+        }
+        
+        if (checkGround() && isThrown) {
+            Debug.DrawLine(transform.position, hit.point, Color.magenta);
+            var reflectedDir = 0.38f * (velocity - 2 * Vector3.Dot(velocity, hit.normal) * (Vector3)hit.normal);
+            if (reflectedDir.magnitude < 0.1f) {
+                velocity = Vector3.zero;
+                isThrown = false;
+            }
+            else velocity = reflectedDir;
+
+            Debug.Log("ground : "+hit.collider.gameObject.name);
         }
 
         transform.position += velocity * Time.deltaTime;
@@ -28,6 +48,21 @@ public class WorldObject : MonoBehaviour {
     }
 
     public virtual void calcVelocity() {
+    }
+
+    bool checkGround() {
+        var dir = velocity.magnitude > 0 ? velocity.normalized : -1 * (Vector3)hit.normal;
+        hit = Physics2D.Raycast(transform.position, dir, size.y, Game.instance.groundLayer);
+        return hit;
+    }
+    
+    Collider2D[] checkWorldObject() {
+        var cols = new Collider2D[0];
+        if (checkRect)
+            cols = Physics2D.OverlapAreaAll(transform.position-size, transform.position+size, Game.instance.worldObjectLayer);
+        else 
+            cols = Physics2D.OverlapCircleAll(transform.position, size.y, Game.instance.worldObjectLayer);
+        return cols;
     }
 
     public void damage(float value) {
@@ -39,6 +74,8 @@ public class WorldObject : MonoBehaviour {
 
     public void destroy() {
         isAlive = false;
+        // TODO : create blood
+        gameObject.SetActive(false);
     }
 
     public void throwObject(Vector3 dir, float force) {

@@ -35,6 +35,9 @@ public class MonsterMove : MonoBehaviour {
                 velocity = -dir * monster.jumpForce;
                 sittingOnObject.throwObject(dir, monster.throwForce);
             }
+            else if (!sittingOnObject.canThrow) {
+                sittingOnObject.damage(monster.damageValue);
+            }
         }
 
         transform.position += velocity * Time.deltaTime;
@@ -49,7 +52,7 @@ public class MonsterMove : MonoBehaviour {
 
     bool checkGround() {
         var dir = velocity.magnitude > 0 ? velocity.normalized : -1 * (Vector3)hit.normal;
-        hit = Physics2D.Raycast(transform.position, dir, monster.size.x, Game.instance.groundLayer);
+        hit = Physics2D.Raycast(transform.position, dir, monster.size.x, Game.instance.groundLayer | Game.instance.worldObjectLayer);
         return hit;
     }
 }
