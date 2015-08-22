@@ -11,7 +11,8 @@ public class MonsterMove : MonoBehaviour {
     Skyscraper currentSkyscraper;
     RaycastHit2D hit;
     float minTargetDistance;
-    WorldObject sittingOnObject;
+    WorldObject sittingOnObject, previousObject;
+
 
     void Update() {
         if (monster.input.jump && !inAir) {
@@ -25,6 +26,8 @@ public class MonsterMove : MonoBehaviour {
             }
             else
                 targetSkyscraper = null;
+            sittingOnObject = null;
+            transform.SetParent(null);
             inAir = true;
         }
 
@@ -36,16 +39,27 @@ public class MonsterMove : MonoBehaviour {
                 var angle = Mathf.Atan2(hit.normal.y, hit.normal.x) * Mathf.Rad2Deg - 90f;
                 transform.rotation = Quaternion.Euler(0f, 0f, angle);
             }
+            previousObject = null;
         }
         else if (checkWorldObject()) {
-            velocity = Vector3.zero;
-            inAir = false;
-            transform.position = (Vector3)hit.point
-                                 + Vector3.up * hit.normal.y * monster.size.y
-                                 + Vector3.right * hit.normal.x * monster.size.x;
-            var angle = Mathf.Atan2(hit.normal.y, hit.normal.x) * Mathf.Rad2Deg - 90f;
-            transform.rotation = Quaternion.Euler(0f, 0f, angle);
-            sittingOnObject = hit.collider.GetComponent<WorldObject>();
+            if (hit.collider.GetComponent<WorldObject>() != previousObject) {
+                Debug.Log("world object");
+                velocity = Vector3.zero;
+                inAir = false;
+                transform.position = (Vector3)hit.point
+                                     + Vector3.up * hit.normal.y * monster.size.y
+                                     + Vector3.right * hit.normal.x * monster.size.x;
+                var angle = Mathf.Atan2(hit.normal.y, hit.normal.x) * Mathf.Rad2Deg - 90f;
+                transform.rotation = Quaternion.Euler(0f, 0f, angle);
+                sittingOnObject = hit.collider.GetComponent<WorldObject>();
+                if (!sittingOnObject.canThrow && sittingOnObject.canBlood) {
+                    sittingOnObject.damage(monster.damageValue);
+                    sittingOnObject = null;
+                }
+                else {
+                    transform.SetParent(sittingOnObject.transform);
+                }
+            }
         }
         else if (checkSkyscraper()) {
             if (targetSkyscraper == null) {
@@ -70,27 +84,30 @@ public class MonsterMove : MonoBehaviour {
                     inAir = false;
                 }
             }
+            previousObject = null;
         }
 
-        if (sittingOnObject != null) {
-            if (sittingOnObject.canThrow && monster.input.throwObject) {
+        if (monster.input.throwObject && sittingOnObject != null) {
+            if (sittingOnObject.canThrow) {
                 var dir = (monster.input.clickPos - transform.position).normalized;
                 velocity = -dir * monster.jumpForce;
                 sittingOnObject.throwObject(dir, monster.throwForce);
+                previousObject = sittingOnObject;
+                sittingOnObject = null;
+                transform.SetParent(null);
                 inAir = true;
             }
-            else if (!sittingOnObject.canThrow && sittingOnObject.canBlood) {
-                sittingOnObject.damage(monster.damageValue);
+        }
+        
+        if (sittingOnObject == null) {
+            transform.position += velocity * Time.deltaTime;
+            if (inAir) {
+                velocity.y += Game.instance.gravity * Time.deltaTime;
             }
-        }
-
-        transform.position += velocity * Time.deltaTime;
-        if (inAir) {
-            velocity.y += Game.instance.gravity * Time.deltaTime;
-        }
-        if (velocity.magnitude > 0) {
-            var angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg - 90f;
-            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+            if (velocity.magnitude > 0) {
+                var angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg - 90f;
+                transform.rotation = Quaternion.Euler(0f, 0f, angle);
+            }
         }
     }
 
@@ -108,7 +125,7 @@ public class MonsterMove : MonoBehaviour {
 
     bool checkSkyscraper() {
         var dir = velocity.magnitude > 0 ? velocity.normalized : -1 * (Vector3)hit.normal;
-        hit = Physics2D.Raycast(transform.position, dir, monster.size.x, Game.instance.groundLayer | Game.instance.skyscrapperLayer);
+        hit = Physics2D.Raycast(transform.position, dir, monster.size.x, Game.instance.skyscrapperLayer);
         return hit;
     }
 }

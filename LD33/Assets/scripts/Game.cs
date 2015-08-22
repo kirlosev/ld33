@@ -10,6 +10,7 @@ public class Game : MonoBehaviour {
     public Monster monster;
     public float gravity = -9f;
     public Blood bloodInstance;
+    public AudioSource sfxSound;
 
     void Awake() {
         instance = this;
@@ -20,5 +21,11 @@ public class Game : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space)) {
             Application.LoadLevel(Application.loadedLevel);
         }
+    }
+
+    public void playSfx(AudioClip sfxClip) {
+        var pitch = 0.9f + Random.Range(-0.5f, 0.5f);
+        sfxSound.pitch = pitch;
+        sfxSound.PlayOneShot(sfxClip);
     }
 }
