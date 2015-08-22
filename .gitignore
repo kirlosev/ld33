@@ -1,0 +1,7 @@
+LD33/Temp/
+LD33/obj/
+LD33/Library/
+builds/
+*.sln
+*.suo
+*.csproj
