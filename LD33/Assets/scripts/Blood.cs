@@ -31,4 +31,8 @@ public class Blood : MonoBehaviour {
     public void init(Vector3 dir, float force) {
         velocity = dir * force;
     }
+
+    public void destroy() {
+        gameObject.SetActive(false);
+    }
 }

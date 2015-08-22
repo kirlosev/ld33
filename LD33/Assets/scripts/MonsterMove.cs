@@ -40,6 +40,12 @@ public class MonsterMove : MonoBehaviour {
             }
         }
 
+        var bloodParts = checkBlood();
+        for (var i = 0; i < bloodParts.Length; ++i) {
+            // TODO : increase specs
+            bloodParts[i].GetComponent<Blood>().destroy();
+        }
+
         transform.position += velocity * Time.deltaTime;
         if (!onGround)
             velocity.y += Game.instance.gravity * Time.deltaTime;
@@ -54,5 +60,9 @@ public class MonsterMove : MonoBehaviour {
         var dir = velocity.magnitude > 0 ? velocity.normalized : -1 * (Vector3)hit.normal;
         hit = Physics2D.Raycast(transform.position, dir, monster.size.x, Game.instance.groundLayer | Game.instance.worldObjectLayer);
         return hit;
+    }
+
+    Collider2D[] checkBlood() {
+        return Physics2D.OverlapAreaAll(transform.position - monster.size, transform.position + monster.size, Game.instance.bloodLayer);
     }
 }
