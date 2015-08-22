@@ -8,13 +8,7 @@ public class Smoke : MonoBehaviour {
     public float animDuration = 1f;
     public float animSpeed = 12;
     public float moveSpeed = 0.05f;
-
-    void Start() {
-        moveSpeed += Random.Range(-0.05f, 0.1f);
-        animDuration += Random.Range(-4f, 4f);
-        StartCoroutine(animate());
-    }
-
+    
     IEnumerator animate() {
         var i = 0;
         var animTimer = 0f;
@@ -28,5 +22,12 @@ public class Smoke : MonoBehaviour {
             animTimer += 1f / animSpeed;
         }
         gameObject.SetActive(false);
+    }
+
+    public void init(Vector3 pos) {
+        transform.position = pos;
+        moveSpeed += Random.Range(-0.05f, 0.1f);
+        animDuration += Random.Range(-4f, 4f);
+        StartCoroutine(animate());
     }
 }

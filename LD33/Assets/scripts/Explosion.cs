@@ -7,11 +7,7 @@ public class Explosion : MonoBehaviour {
     public bool oneHitAnim = false;
     public float animDuration = 1f;
     public float animSpeed = 12;
-
-    void Start() {
-        StartCoroutine(animate());
-    }
-
+    
     IEnumerator animate() {
         var i = 0;
         var animTimer = 0f;
@@ -21,5 +17,10 @@ public class Explosion : MonoBehaviour {
             animTimer += 1f / animSpeed;
         }
         gameObject.SetActive(false);
+    }
+
+    public void init(Vector3 pos) {
+        transform.position = pos;
+        StartCoroutine(animate());
     }
 }

@@ -13,6 +13,7 @@ public class WorldObject : MonoBehaviour {
     RaycastHit2D hit;
     public float damageValue = 1f;
     public bool canBlood = false;
+    public ExplosionManager expManager;
 
     void Awake() {
         size = GetComponent<Collider2D>().bounds.extents;
@@ -39,6 +40,7 @@ public class WorldObject : MonoBehaviour {
                 isThrown = false;
             }
             else velocity = reflectedDir;
+            Instantiate(expManager, transform.position, Quaternion.identity);
         }
 
         transform.position += velocity * Time.deltaTime;
