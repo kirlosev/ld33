@@ -24,6 +24,7 @@ what does "monster" means?
     box2d ? meh
 
 TODO : 
-[]  make todo list
-[]  punch or throw world object
-[]  jumping on the face of the building (not on the side) ?
+[X] make todo list
+[ ] punch or throw world object ?
+[ ] jumping on the face of the building (not on the side) ?
+[ ] depending jump force of duration of mouse btn pressing and blood amount
