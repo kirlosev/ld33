@@ -28,3 +28,4 @@ TODO :
 [ ] punch or throw world object ?
 [ ] jumping on the face of the building (not on the side) ?
 [ ] depending jump force of duration of mouse btn pressing and blood amount
+[ ] instantiating way too much blood particles whem sittingOnObject still != null
