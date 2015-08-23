@@ -63,12 +63,14 @@ public class MonsterMove : MonoBehaviour {
             startJump = false;
             lr.enabled = false;
             monster.bloodTaken = 0f;
+            monster.sounder.playSound(monster.jumpSound);
         }
 
         if (checkGround()) {
             if (inAir) {
                 velocity = Vector3.zero;
                 inAir = false;
+                monster.sounder.playSound(monster.landingSound);
                 transform.position = hit.point + hit.normal * monster.size.y;
                 var angle = Mathf.Atan2(hit.normal.y, hit.normal.x) * Mathf.Rad2Deg - 90f;
                 transform.rotation = Quaternion.Euler(0f, 0f, angle);
@@ -79,6 +81,7 @@ public class MonsterMove : MonoBehaviour {
             if (hit.collider.GetComponent<WorldObject>() != previousObject) {
                 velocity = Vector3.zero;
                 inAir = false;
+                monster.sounder.playSound(monster.landingSound);
                 transform.position = (Vector3)hit.point
                                      + Vector3.up * hit.normal.y * monster.size.y
                                      + Vector3.right * hit.normal.x * monster.size.x;
@@ -101,6 +104,7 @@ public class MonsterMove : MonoBehaviour {
                     currentSkyscraper = hit.collider.GetComponent<Skyscraper>();
                     targetSkyscraper = null;
                     inAir = false;
+                    monster.sounder.playSound(monster.landingSound);
                     var angle = Mathf.Atan2(hit.normal.y, hit.normal.x) * Mathf.Rad2Deg - 90f;
                     transform.rotation = Quaternion.Euler(0f, 0f, angle);
                 }
@@ -115,6 +119,7 @@ public class MonsterMove : MonoBehaviour {
                     currentSkyscraper = targetSkyscraper;
                     targetSkyscraper = null;
                     inAir = false;
+                    monster.sounder.playSound(monster.landingSound);
                 }
             }
             previousObject = null;
@@ -132,6 +137,7 @@ public class MonsterMove : MonoBehaviour {
                 inAir = true;
                 lr.enabled = false;
                 throwable = false;
+                monster.sounder.playSound(monster.throwSound);
             }
         }
         else if (sittingOnObject != null) {
@@ -166,9 +172,9 @@ public class MonsterMove : MonoBehaviour {
 
     IEnumerator calcTrajectory() {
         while (true) {
-            if (startJump || (throwable && sittingOnObject != null)) {
+            if (startJump || throwable) {
                 var point = transform.position;
-                if (throwable) {
+                if (throwable && sittingOnObject != null) {
                     point = sittingOnObject.transform.position;
                 }
                 var dir = (monster.input.mousePos - point).normalized;

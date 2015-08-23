@@ -7,10 +7,22 @@ public class Menu : MonoBehaviour {
     public Sprite[] docsPages;
     public GameObject prevBtn, nextBtn;
     public GameObject startBtn, quitBtn;
+    public Text timeText;
     int currentPage = 0;
+    public bool gameOverMenu = false;
 
     void Start() {
-        checkBtns();
+        if (!gameOverMenu) {
+            if (PlayerPrefs.HasKey("bestTime")) {
+                timeText.text = PlayerPrefs.GetFloat("bestTime").ToString("0:00.00");
+            } else {
+                timeText.text = "NO INFO";
+            }
+            checkBtns();
+        }
+        else {
+            timeText.text = PlayerPrefs.GetFloat("currentTime").ToString("0:00.00");
+        }
     }
 
     public void nextPage() {
@@ -45,6 +57,7 @@ public class Menu : MonoBehaviour {
             startBtn.SetActive(false);
             quitBtn.SetActive(false);
         }
+        timeText.gameObject.SetActive(currentPage == 3);
     }
 
     public void start() {
@@ -53,5 +66,9 @@ public class Menu : MonoBehaviour {
 
     public void quit() {
         Application.Quit();
+    }
+
+    public void mainMenu() {
+        Application.LoadLevel("menu");
     }
 }

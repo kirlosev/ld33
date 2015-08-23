@@ -24,13 +24,13 @@ what does "monster" means?
     box2d ? meh
 
 TODO : 
-[ ] DESIGN : session loop : start, jump, throw, collect blood, stay alive as long as possible. 
+[X] DESIGN : session loop : start, jump, throw, collect blood, stay alive as long as possible. 
     at a certain point of city destruction - beat iron man by throwing a stuff in his face
 [X]     . menu
 [X]     . start game
-[ ]     . game over
-[ ]     . pause
-[ ]     . reset game
+[X]     . game over
+[/]     . pause
+[X]     . reset game
 [X] DESIGN : TIMER - how long session is working
 [X] DESIGN : military things
 [X]     . helicopter
@@ -66,10 +66,10 @@ TODO :
 [X] GRAPHICS : more skyscrappers
 [X] GRAPHICS : decals for blood and explosions
 [X] GRAPHICS : jump trajectory
-[ ] GRAPHICS : blood bar
-[ ] GRAPHICS : jump bar
-[ ] GRAPHICS : health bar
-[ ] GRAPHICS : UI logo
+[^] GRAPHICS : blood bar
+[^] GRAPHICS : jump bar
+[^] GRAPHICS : health bar
+[X] GRAPHICS : UI logo
 [/] GRAPHICS : destroyed world objects
 [X] LEVEL : static objects
 [X]     skyscrapers
@@ -77,12 +77,16 @@ TODO :
 [^] LEVEL : generation:
 [X]     humans
 [X]     cars
-[ ]     helicopters
-[ ]     tanks
-[ ] SOUNDS : jump sound
-[ ] SOUNDS : landing sound
-[ ] SOUNDS : killing a human sound
+[.]     helicopters
+[.]     tanks
+[X] SOUNDS : jump sound
+[X] SOUNDS : landing sound
+[X] SOUNDS : killing a human sound
 [X] SOUNDS : explosion sound
+[X] SOUNDS : throw sound
+[X] SOUNDS : background music
+[X] SOUNDS : hit sound
+[X] SOUNDS : take blood sound
 [X] UI : blood counter
 [X] UI : jumping direction
 [X] UI : throwing direction
@@ -92,3 +96,8 @@ TODO :
 [^] AI : helicopter
 [^] AI : tank
 [X] AI : humans
+[ ] Readme
+[ ] Screenshots
+[ ] Text
+[ ] Post-Mortem
+[ ] Timelapse

@@ -1,12 +1,16 @@
 fileFormatVersion: 2
 guid: 637032de7a87fec4ebab0a6458d3fe75
-timeCreated: 1440351144
+timeCreated: 1440368546
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: ui_0
     21300002: ui_1
     21300004: ui_2
+    21300006: ui_yes
+    21300008: ui_no
+    21300010: ui_logo
+    21300012: ui_bar
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +34,7 @@ TextureImporter:
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -3
-  maxTextureSize: 64
+  maxTextureSize: 128
   textureSettings:
     filterMode: 0
     aniso: 16
@@ -56,7 +60,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 12
-        y: 11
+        y: 75
         width: 7
         height: 9
       alignment: 0
@@ -66,7 +70,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 37
-        y: 17
+        y: 81
         width: 23
         height: 9
       alignment: 0
@@ -76,12 +80,52 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 37
-        y: 6
+        y: 70
         width: 23
         height: 9
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 1, y: 1, z: 1, w: 1}
+    - name: ui_yes
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 17
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 1, y: 1, z: 1, w: 1}
+    - name: ui_no
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 7
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 1, y: 0, z: 1, w: 1}
+    - name: ui_logo
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 38
+        width: 32
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ui_bar
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 38
+        width: 32
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

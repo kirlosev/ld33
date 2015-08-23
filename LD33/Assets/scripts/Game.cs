@@ -14,9 +14,18 @@ public class Game : MonoBehaviour {
     public AudioSource sfxSound;
     public CameraMove gameplayCam;
     public Transform leftBottomCorner, rightTopCorner;
+    public float startGameTime;
     
     void Awake() {
         instance = this;
+    }
+
+    void Start() {
+        startGameTime = Time.time;
+    }
+
+    public float getTimerValue() {
+        return Time.time - startGameTime;
     }
     
     void Update() {

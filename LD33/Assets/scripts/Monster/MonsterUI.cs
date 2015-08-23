@@ -37,6 +37,6 @@ public class MonsterUI : MonoBehaviour {
         jumpBar.rectTransform.sizeDelta = res;
         jumpBar.rectTransform.localPosition = jumpBarOriginPos + Vector3.right * ((monster.bloodTaken / monster.maxBlood) * maxBarWidth - maxBarWidth) / 2f;
 
-        timerText.text = Time.time.ToString("0:00.00");
+        timerText.text = Game.instance.getTimerValue().ToString("0:00.00");
     }
 }
