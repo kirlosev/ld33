@@ -7,15 +7,19 @@ public class ObjectPool : MonoBehaviour {
 
     [Header("Effects")]
     public Explosion explosionInstance;
+    public ExplosionManager explosionManagerInstance;
     public Smoke smokeInstance;
+    
 
     public List<Explosion> explosionContainer;
+    public List<ExplosionManager> explosionManagerContainer;
     public List<Smoke> smokeContainer;
 
     void Awake() {
         instance = this;
 
         explosionContainer = new List<Explosion>();
+        explosionManagerContainer = new List<ExplosionManager>();
         smokeContainer = new List<Smoke>();
     }
 
@@ -40,6 +44,18 @@ public class ObjectPool : MonoBehaviour {
         var obj = Instantiate(smokeInstance, transform.position, Quaternion.identity) as Smoke;
         obj.gameObject.SetActive(false);
         smokeContainer.Add(obj);
+        return obj;
+    }
+
+    public ExplosionManager getExplosionManager() {
+        for (var i = 0; i < explosionManagerContainer.Count; ++i) {
+            if (!explosionManagerContainer[i].gameObject.activeInHierarchy) {
+                return explosionManagerContainer[i];
+            }
+        }
+        var obj = Instantiate(explosionManagerInstance, transform.position, Quaternion.identity) as ExplosionManager;
+        obj.gameObject.SetActive(false);
+        explosionManagerContainer.Add(obj);
         return obj;
     }
 }

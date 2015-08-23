@@ -1,21 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Helicopter : MonoBehaviour {
-    public WorldObject worldObject;
+public class Helicopter : WorldObject {
+    public SpriteRenderer sr;
+    public Sprite[] animSprite;
+    public float animSpeed = 12;
     public float moveSpeed = 4f;
     Character target;
-    Vector3 velocity;
 
-    void Start() {
+    public void Start() {
+        base.Start();
         target = Game.instance.monster;
+        StartCoroutine(animate());
     }
 
-    void Update() {
-        if (!worldObject.isAlive) {
-            return;
-        }
-        
+    public override void calcVelocity() {
+        if (!isAlive) return;
+
         var targetDir = target.transform.position - transform.position;
         if (targetDir.magnitude < 2f) {
             velocity = -targetDir.normalized;
@@ -27,10 +28,17 @@ public class Helicopter : MonoBehaviour {
             velocity = Vector3.up * Mathf.Sin(Time.time);
         }
 
-        if (Physics2D.Raycast(transform.position, -Vector3.up, worldObject.size.y, Game.instance.groundLayer)) {
+        if (Physics2D.Raycast(transform.position, -Vector3.up, size.y, Game.instance.groundLayer)) {
             velocity = Vector3.up;
         }
 
-        transform.position += velocity * moveSpeed * Time.deltaTime;
+    }
+
+    IEnumerator animate() {
+        var i = 0;
+        while (isAlive) {
+            sr.sprite = animSprite[i++ % animSprite.Length];
+            yield return new WaitForSeconds(1f / animSpeed);
+        }
     }
 }

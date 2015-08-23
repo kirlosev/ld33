@@ -27,7 +27,7 @@ public class MonsterMove : MonoBehaviour {
     }
 
     void Update() {
-        if (monster.input.jumpPressed) {
+        if (monster.input.jumpPressed && !inAir) {
             startJumpTime = Time.time;
             startJump = true;
             lr.enabled = true;
@@ -142,7 +142,7 @@ public class MonsterMove : MonoBehaviour {
 
     IEnumerator calcTrajectory() {
         while (true) {
-            if (startJump && !inAir) {
+            if (startJump) {
                 var point = transform.position;
                 var dir = (monster.input.mousePos - point).normalized;
                 var force = monster.bloodTaken / monster.maxBloodPerJump * monster.maxJumpForce;

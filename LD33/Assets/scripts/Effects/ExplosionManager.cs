@@ -2,7 +2,12 @@
 using System.Collections;
 
 public class ExplosionManager : MonoBehaviour {
-    IEnumerator Start() {
+    public void init(Vector3 pos) {
+        transform.position = pos;
+        StartCoroutine(explode());
+    }
+
+    IEnumerator explode() {
         Game.instance.gameplayCam.shake(0.4f, 0.1f);
         for (var i = 0; i < 5; ++i) {
             var exp = ObjectPool.instance.getExplosion();

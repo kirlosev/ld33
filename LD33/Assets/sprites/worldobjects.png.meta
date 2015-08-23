@@ -1,16 +1,22 @@
 fileFormatVersion: 2
 guid: 5fa0cdecc03ce374bafca7e19466e6c2
-timeCreated: 1440278220
+timeCreated: 1440315126
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: worldobjects_0
+    21300000: helicopter1_0
     21300002: worldobjects_1
     21300004: worldobjects_2
     21300006: worldobjects_3
     21300008: worldobjects_4
     21300010: worldobjects_5
     21300012: worldobjects_6
+    21300014: helicopter1_1
+    21300016: helicopter2_0
+    21300018: helicopter2_1
+    21300020: tank_gun
+    21300022: tank_0
+    21300024: tank_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -56,20 +62,20 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: worldobjects_0
+    - name: helicopter1_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
         y: 42
         width: 32
-        height: 16
+        height: 14
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: worldobjects_1
       rect:
         serializedVersion: 2
-        x: 34
+        x: 2
         y: 56
         width: 4
         height: 8
@@ -79,7 +85,7 @@ TextureImporter:
     - name: worldobjects_2
       rect:
         serializedVersion: 2
-        x: 41
+        x: 9
         y: 56
         width: 6
         height: 8
@@ -89,7 +95,7 @@ TextureImporter:
     - name: worldobjects_3
       rect:
         serializedVersion: 2
-        x: 49
+        x: 17
         y: 56
         width: 6
         height: 8
@@ -99,7 +105,7 @@ TextureImporter:
     - name: worldobjects_4
       rect:
         serializedVersion: 2
-        x: 58
+        x: 26
         y: 56
         width: 4
         height: 8
@@ -109,8 +115,8 @@ TextureImporter:
     - name: worldobjects_5
       rect:
         serializedVersion: 2
-        x: 9
-        y: 20
+        x: 41
+        y: 52
         width: 23
         height: 9
       alignment: 9
@@ -119,12 +125,72 @@ TextureImporter:
     - name: worldobjects_6
       rect:
         serializedVersion: 2
-        x: 9
-        y: 10
+        x: 41
+        y: 42
         width: 23
         height: 9
       alignment: 9
       pivot: {x: .300000012, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: helicopter1_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 42
+        width: 32
+        height: 14
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: helicopter2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 11
+        width: 32
+        height: 13
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: helicopter2_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 11
+        width: 32
+        height: 13
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tank_gun
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 26
+        width: 17
+        height: 5
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tank_0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 31
+        height: 18
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tank_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 31
+        height: 18
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

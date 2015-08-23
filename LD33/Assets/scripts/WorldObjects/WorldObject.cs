@@ -7,20 +7,50 @@ public class WorldObject : MonoBehaviour {
     public float health = 1f;
     public float maxHealth = 1f;
     public Vector3 size;
-    Vector3 velocity;
+    public Vector3 velocity;
     bool isThrown = false;
     public bool checkRect = true;
     RaycastHit2D hit;
     public float damageValue = 1f;
     public bool canBlood = false;
-    public ExplosionManager expManager;
     public bool disableOnDestroy = false;
+    public bool inAir = false;
+    public bool explosive = false;
 
     void Awake() {
         size = GetComponent<Collider2D>().bounds.extents;
     }
 
+    public void Start() {
+    }
+
     void Update() {
+        if (checkGround()) {
+            inAir = false;
+            if (!isAlive) {
+                velocity = Vector3.zero;
+            }
+            if (isThrown) {
+                Debug.DrawLine(transform.position, hit.point, Color.magenta);
+                var reflectedDir = 0.62f * (velocity - 2 * Vector3.Dot(velocity, hit.normal) * (Vector3)hit.normal);
+                if (reflectedDir.magnitude < 0.1f || (Vector3)hit.normal == Vector3.up) {
+                    velocity = Vector3.zero;
+                    isThrown = false;
+                    damage(5f); // TODO : change to something
+                }
+                else {
+                    velocity = reflectedDir;
+                }
+                if (hit.collider.GetComponent<Rocket>() != null) { // TODO : make rocket extents from WorldObject and move this shit down
+                    hit.collider.GetComponent<Rocket>().damage(1f);
+                }
+            }
+        }
+        else {
+            if (canThrow)
+                inAir = true;
+        }
+
         if (!isThrown) {
             calcVelocity();
         }
@@ -33,24 +63,11 @@ public class WorldObject : MonoBehaviour {
             }
         }
 
-        if (checkGround() && isThrown) {
-            Debug.DrawLine(transform.position, hit.point, Color.magenta);
-            var reflectedDir = 0.38f * (velocity - 2 * Vector3.Dot(velocity, hit.normal) * (Vector3)hit.normal);
-            if (reflectedDir.magnitude < 0.1f || (Vector3)hit.normal == Vector3.up) {
-                velocity = Vector3.zero;
-                isThrown = false;
-            }
-            else velocity = reflectedDir;
-            if (hit.collider.GetComponent<Rocket>() != null) {
-                hit.collider.GetComponent<Rocket>().damage(1f);
-            }
-            Instantiate(expManager, transform.position, Quaternion.identity);
-            damage(5f); // TODO : change to something
-        }
-
         transform.position += velocity * Time.deltaTime;
-        if (isThrown)
+        if (inAir) {
+            Debug.Log("gravity");
             velocity.y += Game.instance.gravity * Time.deltaTime;
+        }
     }
 
     public virtual void calcVelocity() {
@@ -73,6 +90,11 @@ public class WorldObject : MonoBehaviour {
 
     public void damage(float value) {
         health -= value;
+        if (explosive) {
+            var expMan = ObjectPool.instance.getExplosionManager();
+            expMan.gameObject.SetActive(true);
+            expMan.init(transform.position);
+        }
         if (health <= 0) {
             destroy();
         }

@@ -27,8 +27,8 @@ TODO :
 [ ] DESIGN : session loop : start, jump, throw, collect blood, stay alive as long as possible. 
     at a certain point of city destruction - beat iron man by throwing a stuff in his face
 [ ] DESIGN : military things
-[.]     . helicopter
-[ ]     . tank
+[X]     . helicopter
+[.]     . tank
 [X]     . rockets
 [ ]     . iron man - boss ? just kidding????
 [ ] DESIGN : humanity
