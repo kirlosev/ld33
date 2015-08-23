@@ -1,12 +1,21 @@
 fileFormatVersion: 2
 guid: f29253a30093d3c47acd1d63ec887fb9
-timeCreated: 1440251300
+timeCreated: 1440351087
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: skyscraper_0
     21300002: skyscraper_1
     21300004: skyscraper_2
+    21300006: skyscraper_3
+    21300008: skyscraper_4
+    21300010: skyscraper_5
+    21300012: skyscraper_6
+    21300014: skyscraper_7
+    21300016: skyscraper_8
+    21300018: skyscraper_9
+    21300020: skyscraper_10
+    21300022: skyscraper_11
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -56,7 +65,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 0
+        y: 128
         width: 32
         height: 128
       alignment: 0
@@ -66,7 +75,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 82
-        y: 0
+        y: 128
         width: 28
         height: 127
       alignment: 0
@@ -76,9 +85,99 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 136
-        y: 0
+        y: 128
         width: 48
         height: 127
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skyscraper_3
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 128
+        width: 28
+        height: 81
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skyscraper_4
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 0
+        width: 39
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skyscraper_5
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 64
+        width: 47
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skyscraper_6
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 1
+        width: 34
+        height: 63
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skyscraper_7
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 11
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skyscraper_8
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 0
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skyscraper_9
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skyscraper_10
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 0
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skyscraper_11
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 0
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

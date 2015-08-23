@@ -8,8 +8,18 @@ public class Bullet : MonoBehaviour {
     public float moveSpeed = 0.5f;
 
     Vector3 velocity;
-    
+    RaycastHit2D hit;
+    Vector3 size;
+
+    void Start() {
+        size = GetComponent<Collider2D>().bounds.extents;
+    }
+
     void Update() {
+        if (checkGround()) {
+            damage();
+        }
+
         transform.position += velocity * moveSpeed * Time.deltaTime;
         var angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
@@ -23,13 +33,19 @@ public class Bullet : MonoBehaviour {
         }
     }
 
+    bool checkGround() {
+        var dir = velocity.magnitude > 0 ? velocity.normalized : -1 * (Vector3)hit.normal;
+        hit = Physics2D.Raycast(transform.position, dir, size.y, Game.instance.groundLayer);
+        return hit;
+    }
+
     public void init(Vector3 pos, Vector3 dir) {
         transform.position = pos;
         velocity = dir;
         StartCoroutine(animate());
     }
 
-    public void damage(float value) {
+    public void damage(float value = 1) {
         gameObject.SetActive(false);
     }
 }

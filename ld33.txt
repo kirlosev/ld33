@@ -31,11 +31,11 @@ TODO :
 [X]     . helicopter
 [X]     . tank
 [X]     . rockets
+[X]     . bullets
 [ ]     . iron man - boss ? just kidding????
 [ ] DESIGN : humanity
 [X]     . people
 [X]     . cars
-
 [X] GAMEPLAY : throw world object
 [X] GAMEPLAY : jumping on the face of the building (not on the side) ?
 [X] GAMEPLAY : depending jump force of duration of mouse btn pressing and blood amount
@@ -43,16 +43,14 @@ TODO :
 [X] LOGIC : explosions
 [X] LOGIC : smoke
 [X] LOGIC : camera shake
-[.] LOGIC : bullets
-[ ] LOGIC : rocket
+[X] LOGIC : bullets
+[X] LOGIC : rocket
 [X] LOGIC : blood amount
-[ ] LOGIC : camera bounds for movement;
+[X] LOGIC : camera bounds for movement;
 [ ] LOGIC : parallax
-[ ] LOGIC : military shooting rockets and bullets
-[ ]     .
+[X] LOGIC : military shooting rockets and bullets
 [X] GRAPHICS : draw a background (objects for parallax)
-[ ] GRAPHICS : monster with animations
-[ ]     .
+[.] GRAPHICS : monster with animations
 [X] GRAPHICS : humans
 [X] GRAPHICS : cars
 [X] GRAPHICS : tank
@@ -67,8 +65,14 @@ TODO :
 [ ] GRAPHICS : health bar
 [ ] GRAPHICS : UI logo
 [ ] GRAPHICS : destroyed world objects
-[ ] LEVEL : make it!
-[.] LEVEL : generation enemies, humans and cars
+[ ] LEVEL : static objects
+[ ]     skyscrapers
+[ ]     park
+[^] LEVEL : generation:
+[X]     humans
+[X]     cars
+[ ]     helicopters
+[ ]     tanks
 [ ] SOUNDS : jump sound
 [ ] SOUNDS : landing sound
 [ ] SOUNDS : killing a human sound
@@ -82,3 +86,5 @@ TODO :
 [^] AI : helicopter
 [^] AI : tank
 [X] AI : humans
+
+NAME! JUMIUS ? 

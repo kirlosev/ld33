@@ -18,6 +18,8 @@ public class ObjectPool : MonoBehaviour {
     [Header("Enemies")]
     public Helicopter[] helicopterInstance;
     public Tank[] tankInstance;
+    public Bullet bulletInstance;
+    public Rocket rocketInstance;
 
     List<Explosion> explosionContainer;
     List<ExplosionManager> explosionManagerContainer;
@@ -27,6 +29,8 @@ public class ObjectPool : MonoBehaviour {
     List<Helicopter> helicopterContainer;
     List<Tank> tankContainer;
     List<Blood> bloodContainer;
+    List<Bullet> bulletContainer;
+    List<Rocket> rocketContainer;
 
     void Awake() {
         instance = this;
@@ -39,6 +43,8 @@ public class ObjectPool : MonoBehaviour {
         helicopterContainer = new List<Helicopter>();
         tankContainer = new List<Tank>();
         bloodContainer = new List<Blood>();
+        bulletContainer = new List<Bullet>();
+        rocketContainer = new List<Rocket>();
     }
 
     public Explosion getExplosion() {
@@ -140,4 +146,28 @@ public class ObjectPool : MonoBehaviour {
         bloodContainer.Add(obj);
         return obj;
     }
+
+    public Bullet getBullet() {
+        for (var i = 0; i < bulletContainer.Count; ++i) {
+            if (!bulletContainer[i].gameObject.activeInHierarchy) {
+                return bulletContainer[i];
+            }
+        }
+        var obj = Instantiate(bulletInstance, transform.position, Quaternion.identity) as Bullet;
+        obj.gameObject.SetActive(false);
+        bulletContainer.Add(obj);
+        return obj;
+    }
+    public Rocket getRocket() {
+        for (var i = 0; i < rocketContainer.Count; ++i) {
+            if (!rocketContainer[i].gameObject.activeInHierarchy) {
+                return rocketContainer[i];
+            }
+        }
+        var obj = Instantiate(rocketInstance, transform.position, Quaternion.identity) as Rocket;
+        obj.gameObject.SetActive(false);
+        rocketContainer.Add(obj);
+        return obj;
+    }
+
 }

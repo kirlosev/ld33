@@ -2,8 +2,11 @@
 using System.Collections;
 
 public class ExplosionManager : MonoBehaviour {
+    public AudioClip sound;
+
     public void init(Vector3 pos) {
         transform.position = pos;
+        Game.instance.playSfx(sound);
         StartCoroutine(explode());
     }
 

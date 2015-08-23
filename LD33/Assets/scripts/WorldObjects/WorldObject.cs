@@ -25,7 +25,7 @@ public class WorldObject : MonoBehaviour {
     }
 
     void Update() {
-        if (Mathf.Sign(transform.localScale.x) != Mathf.Sign(velocity.x))
+        if (Mathf.Sign(transform.localScale.x) != Mathf.Sign(velocity.x) && velocity.magnitude > 0.1f)
             flipScale();
         if (checkGround()) {
             inAir = false;
@@ -69,6 +69,17 @@ public class WorldObject : MonoBehaviour {
         if (inAir) {
             velocity.y += Game.instance.gravity * Time.deltaTime;
         }
+
+        if (transform.position.x > Game.instance.rightTopCorner.position.x) {
+            var repos = transform.position;
+            repos.x = Game.instance.leftBottomCorner.position.x;
+            transform.position = repos;
+        }
+        else if (transform.position.x < Game.instance.leftBottomCorner.position.x) {
+            var repos = transform.position;
+            repos.x = Game.instance.rightTopCorner.position.x;
+            transform.position = repos;
+        }
     }
 
     public virtual void calcVelocity() {
@@ -108,10 +119,11 @@ public class WorldObject : MonoBehaviour {
                 var b = ObjectPool.instance.getBlood();
                 b.gameObject.SetActive(true);
                 b.enabled = true;
-                b.init((Vector3)hit.normal
-                        + Vector3.right * Random.Range(-0.2f, 0.2f) * Mathf.Sign(hit.normal.x)
-                        + Vector3.up * Random.Range(-0.2f, 0.2f) * Mathf.Sign(hit.normal.y),
-                        (amount * 5 - i));
+                b.init(transform.position,
+                        (Vector3)hit.normal
+                        + Vector3.right * Random.Range(-0.5f, 0.5f) * Mathf.Sign(hit.normal.x)
+                        + Vector3.up * Random.Range(-0.5f, 0.5f) * Mathf.Sign(hit.normal.y),
+                        (amount * 4 - i));
             }
         }
         isAlive = false;

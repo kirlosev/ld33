@@ -7,6 +7,7 @@ public class Tank : WorldObject {
     public float animSpeed = 12;
     public float moveSpeed = 4f;
     Character target;
+    TankShoot shoot;
 
     public void Start() {
         base.Start();
@@ -43,6 +44,7 @@ public class Tank : WorldObject {
     public override void init(Vector3 pos) {
         base.init(pos);
         moveSpeed += Random.Range(-0.5f, 0.5f);
+        shoot.init();
         StartCoroutine(animate());
     }
 }

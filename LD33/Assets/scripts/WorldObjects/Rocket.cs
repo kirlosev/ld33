@@ -8,13 +8,34 @@ public class Rocket : MonoBehaviour {
     public float moveSpeed = 0.5f;
 
     Vector3 velocity;
-    
+    RaycastHit2D hit;
+    Vector3 size;
+
+    void Start() {
+        size = GetComponent<Collider2D>().bounds.extents;
+    }
+
     void Update() {
+        if (checkGround()) {
+            damage();
+        }
+
+        transform.position += velocity * moveSpeed * Time.deltaTime;
+
         var targetPos = Game.instance.monster.transform.position;
-        velocity = (targetPos - transform.position).normalized;
-        transform.position += velocity *moveSpeed* Time.deltaTime;
+        velocity += (targetPos - transform.position).normalized * Time.deltaTime;
+        if (velocity.magnitude > moveSpeed) {
+            velocity = velocity.normalized * moveSpeed;
+        }
+
         var angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, angle); 
+    }
+
+    bool checkGround() {
+        var dir = velocity.magnitude > 0 ? velocity.normalized : -1 * (Vector3)hit.normal;
+        hit = Physics2D.Raycast(transform.position, dir, size.y, Game.instance.groundLayer | Game.instance.skyscraperLayer);
+        return hit;
     }
 
     IEnumerator animate() {
@@ -31,7 +52,11 @@ public class Rocket : MonoBehaviour {
         StartCoroutine(animate());
     }
 
-    public void damage(float value) {
+    public void damage(float value = 1) {
+        var expMan = ObjectPool.instance.getExplosionManager();
+        expMan.gameObject.SetActive(true);
+        expMan.init(transform.position);
+
         gameObject.SetActive(false);
     }
 }

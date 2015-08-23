@@ -34,7 +34,7 @@ public class Level : MonoBehaviour {
 
         for (var i = 0; i < amountCars; ++i) {
             var h = ObjectPool.instance.getCar();
-            var pos = new Vector3(Random.Range(Game.instance.leftBottomCorner.position.x, Game.instance.rightTopCorner.position.x), 1.226f);
+            var pos = new Vector3(Random.Range(Game.instance.leftBottomCorner.position.x, Game.instance.rightTopCorner.position.x), 1.5f);
             h.gameObject.SetActive(true);
             h.init(pos);
             carsOnScene.Add(h);
@@ -62,9 +62,10 @@ public class Level : MonoBehaviour {
             }
 
             for (var i = 0; i < carsOnScene.Count; ++i) {
-                if (!carsOnScene[i].gameObject.activeInHierarchy) {
-                    carsOnScene[i].gameObject.SetActive(true);
-                    var pos = new Vector3(Random.Range(Game.instance.leftBottomCorner.position.x, Game.instance.rightTopCorner.position.x), 1.226f);
+                if (!carsOnScene[i].isAlive) {
+                    carsOnScene.RemoveAt(i);
+                    var pos = new Vector3(Random.Range(Game.instance.leftBottomCorner.position.x, Game.instance.rightTopCorner.position.x), 1.5f);
+                    /*
                     if (Mathf.Abs(Game.instance.leftBottomCorner.position.x - Game.instance.monster.transform.position.x)
                         > Mathf.Abs(Game.instance.rightTopCorner.position.x - Game.instance.monster.transform.position.x)) {
                         pos.x = Game.instance.rightTopCorner.position.x;
@@ -72,7 +73,12 @@ public class Level : MonoBehaviour {
                     else {
                         pos.x = Game.instance.leftBottomCorner.position.x;
                     }
-                    carsOnScene[i].init(pos);
+                    */
+                    var h = ObjectPool.instance.getCar();
+                    h.gameObject.SetActive(true);
+                    h.init(pos);
+                    carsOnScene.Add(h);
+                    Debug.Log("added a new car");
                 }
                 yield return new WaitForFixedUpdate();
             }
