@@ -23,7 +23,6 @@ public class MonsterMove : MonoBehaviour {
     void Start() {
         vertexCount = (int)Mathf.Ceil(trajectoryTime / timeResolution);
         lr.SetVertexCount(vertexCount);
-        Debug.Log("vert count: " + vertexCount);
         StartCoroutine(calcTrajectory());
     }
 
@@ -37,13 +36,14 @@ public class MonsterMove : MonoBehaviour {
         if (startJump) {
             var deltaTime = Mathf.Clamp(Time.time - startJumpTime, 0f, monster.maxJumpTime);
             jumpForce = deltaTime * monster.maxJumpForce / monster.maxJumpTime;
-            var bloodThisJump = (monster.move.jumpForce / monster.maxJumpForce) * monster.maxBloodPerJump;
-            monster.bloodTaken = monster.bloodManager.reserveBlood(bloodThisJump);
+            var targetBloodTake = (monster.move.jumpForce / monster.maxJumpForce) * monster.maxBloodPerJump;
+            monster.bloodTaken = monster.bloodManager.reserveBlood(targetBloodTake);
         }
 
         if (monster.input.jumpReleased && !inAir) {
             var dir = (monster.input.clickPos - transform.position).normalized;
-            Debug.Log("jumpForce : " + jumpForce);
+            monster.bloodManager.getBlood(monster.bloodTaken);
+            jumpForce = monster.bloodTaken / monster.maxBloodPerJump * monster.maxJumpForce;
             velocity = dir * jumpForce;
             targetPoint = monster.input.clickPos;
             minTargetDistance = Mathf.Infinity;
@@ -58,10 +58,7 @@ public class MonsterMove : MonoBehaviour {
             inAir = true;
             startJump = false;
             lr.enabled = false;
-            Debug.Log("blood before taking : "+monster.blood +", jump force: "+jumpForce);
-            var bb = monster.bloodManager.getBlood(monster.bloodTaken);
             monster.bloodTaken = 0f;
-            Debug.Log("took blood : "+ bb +", remain : "+ monster.blood);
         }
 
         if (checkGround()) {
@@ -145,10 +142,11 @@ public class MonsterMove : MonoBehaviour {
 
     IEnumerator calcTrajectory() {
         while (true) {
-            if (startJump) {
+            if (startJump && !inAir) {
                 var point = transform.position;
                 var dir = (monster.input.mousePos - point).normalized;
-                var pointVelocity = dir * jumpForce;
+                var force = monster.bloodTaken / monster.maxBloodPerJump * monster.maxJumpForce;
+                var pointVelocity = dir * force;
                 lr.SetPosition(0, point);
                 var index = 1;
                 for (var i = 0f; index < vertexCount; i += timeResolution, index++) {

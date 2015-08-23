@@ -18,16 +18,16 @@ public class MonsterBlood : MonoBehaviour {
     }
 
     public void takeBlood() {
-        monster.blood = Mathf.Clamp(monster.blood + 1, 0, monster.maxBlood);
+        monster.blood = Mathf.Clamp(monster.blood + 1, monster.maxBloodPerJump / 2f, monster.maxBlood);
     }
 
     public float reserveBlood(float amount) {
-        return Mathf.Abs(monster.blood - Mathf.Clamp(monster.blood - amount, 0, monster.maxBlood));
+        return Mathf.Clamp(monster.blood - Mathf.Clamp(monster.blood - amount, monster.maxBloodPerJump / 2f, monster.maxBlood), monster.maxBloodPerJump / 2f, monster.maxBlood);
     }
 
     public float getBlood(float amount) {
         var saveBloodAmount = monster.blood;
-        monster.blood = Mathf.Clamp(monster.blood - amount, 0, monster.maxBlood);
+        monster.blood = Mathf.Clamp(monster.blood - amount, monster.maxBloodPerJump/2f, monster.maxBlood);
         return Mathf.Abs(saveBloodAmount - monster.blood);
     }
 }

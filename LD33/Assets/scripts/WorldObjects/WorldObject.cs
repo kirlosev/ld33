@@ -14,6 +14,7 @@ public class WorldObject : MonoBehaviour {
     public float damageValue = 1f;
     public bool canBlood = false;
     public ExplosionManager expManager;
+    public bool disableOnDestroy = false;
 
     void Awake() {
         size = GetComponent<Collider2D>().bounds.extents;
@@ -44,6 +45,7 @@ public class WorldObject : MonoBehaviour {
                 hit.collider.GetComponent<Rocket>().damage(1f);
             }
             Instantiate(expManager, transform.position, Quaternion.identity);
+            damage(5f); // TODO : change to something
         }
 
         transform.position += velocity * Time.deltaTime;
@@ -77,16 +79,20 @@ public class WorldObject : MonoBehaviour {
     }
 
     public void destroy() {
-        isAlive = false;
         var amount = 10;
-        for (var i = 0; i < amount; ++i) {
-            var b = Instantiate(Game.instance.bloodInstance, transform.position, Quaternion.identity) as Blood;
-            b.init((Vector3)hit.normal
-                    + Vector3.right * Random.Range(-0.2f, 0.2f) * Mathf.Sign(hit.normal.x)
-                    + Vector3.up * Random.Range(-0.2f, 0.2f) * Mathf.Sign(hit.normal.y),
-                    (amount*10 - i));
+        if (isAlive) {
+            for (var i = 0; i < amount; ++i) {
+                var b = Instantiate(Game.instance.bloodInstance, transform.position, Quaternion.identity) as Blood;
+                b.init((Vector3)hit.normal
+                        + Vector3.right * Random.Range(-0.2f, 0.2f) * Mathf.Sign(hit.normal.x)
+                        + Vector3.up * Random.Range(-0.2f, 0.2f) * Mathf.Sign(hit.normal.y),
+                        (amount * 10 - i));
+            }
         }
-        gameObject.SetActive(false);
+        isAlive = false;
+        if (disableOnDestroy) {
+            gameObject.SetActive(false);
+        }
     }
 
     public void throwObject(Vector3 dir, float force) {

@@ -27,7 +27,7 @@ TODO :
 [ ] DESIGN : session loop : start, jump, throw, collect blood, stay alive as long as possible. 
     at a certain point of city destruction - beat iron man by throwing a stuff in his face
 [ ] DESIGN : military things
-[ ]     . helicopter
+[.]     . helicopter
 [ ]     . tank
 [X]     . rockets
 [ ]     . iron man - boss ? just kidding????
@@ -36,16 +36,17 @@ TODO :
 [ ]     . cars
 [X] GAMEPLAY : throw world object
 [X] GAMEPLAY : jumping on the face of the building (not on the side) ?
-[.] GAMEPLAY : depending jump force of duration of mouse btn pressing and blood amount
+[X] GAMEPLAY : depending jump force of duration of mouse btn pressing and blood amount
 [X] LOGIC : instantiating way too much blood particles whem sittingOnObject still != null
 [X] LOGIC : explosions
 [X] LOGIC : smoke
 [X] LOGIC : camera shake
 [ ] LOGIC : AI for humans
 [ ] LOGIC : AI for military
-[ ] LOGIC : blood amount
+[X] LOGIC : blood amount
 [ ] LOGIC : camera bounds for movement;
 [ ] LOGIC : parallax
+[ ] LOGIC : rocket movement improvments
 [ ]     .
 [X] GRAPHICS : draw a background (objects for parallax)
 [ ] GRAPHICS : monster with animations
@@ -58,13 +59,17 @@ TODO :
 [ ] GRAPHICS : more skyscrappers
 [ ] GRAPHICS : decals for blood and explosions
 [ ] GRAPHICS : jump trajectory
+[ ] GRAPHICS : blood bar
+[ ] GRAPHICS : jump bar
+[ ] GRAPHICS : health bar
+[ ] GRAPHICS : UI logo
 [ ] LEVEL : create a level
 [ ] SOUNDS : jump sound
 [ ] SOUNDS : landing sound
 [ ] SOUNDS : killing a human sound
 [X] SOUNDS : explosion sound
-[ ] UI : blood counter
-[ ] UI : jumping direction
+[X] UI : blood counter
+[X] UI : jumping direction
 [ ] UI : throwing direction
-[ ] UI : health
+[X] UI : health
 [ ] UI : menu
