@@ -24,7 +24,6 @@ public class Menu : MonoBehaviour {
     }
 
     void checkBtns() {
-        Debug.Log(currentPage);
         if (currentPage == 0) {
             nextBtn.SetActive(true);
             prevBtn.SetActive(false);

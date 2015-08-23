@@ -19,6 +19,7 @@ public class MonsterBlood : MonoBehaviour {
 
     public void takeBlood() {
         monster.blood = Mathf.Clamp(monster.blood + 2, monster.maxBloodPerJump / 2f, monster.maxBlood);
+        monster.health = Mathf.Clamp(monster.health + 2, 0f, monster.maxHealth);
     }
 
     public float reserveBlood(float amount) {

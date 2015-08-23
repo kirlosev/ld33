@@ -7,6 +7,7 @@ public class MonsterUI : MonoBehaviour {
     public Image healthBar;
     public Image bloodBar;
     public Image jumpBar;
+    public Text timerText;
     float oldWidth;
     float maxBarWidth;
     Vector3 healthBarOriginPos;
@@ -35,5 +36,7 @@ public class MonsterUI : MonoBehaviour {
         res.x = (monster.bloodTaken / monster.maxBlood) * maxBarWidth;
         jumpBar.rectTransform.sizeDelta = res;
         jumpBar.rectTransform.localPosition = jumpBarOriginPos + Vector3.right * ((monster.bloodTaken / monster.maxBlood) * maxBarWidth - maxBarWidth) / 2f;
+
+        timerText.text = Time.time.ToString("0:00.00");
     }
 }

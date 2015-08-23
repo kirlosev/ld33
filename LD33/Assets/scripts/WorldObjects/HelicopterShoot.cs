@@ -8,11 +8,7 @@ public class HelicopterShoot : MonoBehaviour {
     public int bulletsPerShoot = 4;
     public float delayBetweenBullets = 0.1f;
     Vector3 targetDir;
-
-    void Start() {
-        init();
-    }
-
+    
     public void init() {
         target = Game.instance.monster;
         StartCoroutine(shoot());

@@ -20,6 +20,11 @@ public class Rocket : MonoBehaviour {
             damage();
         }
 
+        if (checkPlayer()) {
+            hit.collider.GetComponent<Monster>().damage(50f);
+            damage();
+        }
+
         transform.position += velocity * moveSpeed * Time.deltaTime;
 
         var targetPos = Game.instance.monster.transform.position;
@@ -34,7 +39,13 @@ public class Rocket : MonoBehaviour {
 
     bool checkGround() {
         var dir = velocity.magnitude > 0 ? velocity.normalized : -1 * (Vector3)hit.normal;
-        hit = Physics2D.Raycast(transform.position, dir, size.y, Game.instance.groundLayer | Game.instance.skyscraperLayer);
+        hit = Physics2D.Raycast(transform.position, dir, size.y, Game.instance.groundLayer | Game.instance.skyscraperLayer | Game.instance.playerLayer);
+        return hit;
+    }
+
+    bool checkPlayer() {
+        var dir = velocity.magnitude > 0 ? velocity.normalized : -1 * (Vector3)hit.normal;
+        hit = Physics2D.Raycast(transform.position, dir, size.y, Game.instance.playerLayer);
         return hit;
     }
 

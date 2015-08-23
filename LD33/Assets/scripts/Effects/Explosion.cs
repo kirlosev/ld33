@@ -11,7 +11,6 @@ public class Explosion : MonoBehaviour {
     IEnumerator animate() {
         var i = 0;
         var animTimer = 0f;
-        
         while (animTimer <= animDuration) {
             sr.color = animColors[i++%animColors.Length];
             yield return new WaitForSeconds(1f/animSpeed);

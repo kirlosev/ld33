@@ -6,6 +6,7 @@ public class Blood : MonoBehaviour {
     Vector3 velocity;
     RaycastHit2D hit;
     public bool isMoving = true;
+    public Transform bloodDecal;
 
     void Awake() {
         size = gameObject.GetComponent<Collider2D>().bounds.extents;
@@ -14,6 +15,10 @@ public class Blood : MonoBehaviour {
     void Update() {
         if (!isMoving) return;
         if (checkGround()) {
+            var angle = Mathf.Atan2(hit.normal.y, hit.normal.x) * Mathf.Rad2Deg - 90f;
+            if (angle % 45 == 0) {
+                Instantiate(bloodDecal, hit.point, Quaternion.AngleAxis(angle, Vector3.forward));
+            }
             var reflectedDir = 0.38f * (velocity - 2 * Vector3.Dot(velocity, hit.normal) * (Vector3)hit.normal);
             if (reflectedDir.magnitude < 0.1f) {
                 velocity = Vector3.zero;

@@ -19,6 +19,9 @@ public class MonsterMove : MonoBehaviour {
     public float timeResolution = 0.1f;
     public LineRenderer lr;
     int vertexCount;
+    bool throwable = false;
+    public Color jumpTrailColorStart, jumpTrailColorEnd,
+                 throwTrailColorStart, throwTrailColorEnd;
 
     void Start() {
         vertexCount = (int)Mathf.Ceil(trajectoryTime / timeResolution);
@@ -31,6 +34,7 @@ public class MonsterMove : MonoBehaviour {
             startJumpTime = Time.time;
             startJump = true;
             lr.enabled = true;
+            lr.SetColors(jumpTrailColorStart, jumpTrailColorEnd);
         }
 
         if (startJump) {
@@ -115,7 +119,7 @@ public class MonsterMove : MonoBehaviour {
             }
             previousObject = null;
         }
-
+        
         if (monster.input.throwObject && sittingOnObject != null) {
             if (sittingOnObject.canThrow) {
                 var dir = (monster.input.clickPos - transform.position).normalized;
@@ -126,6 +130,15 @@ public class MonsterMove : MonoBehaviour {
                 transform.SetParent(null);
                 transform.localScale = Vector3.one;
                 inAir = true;
+                lr.enabled = false;
+                throwable = false;
+            }
+        }
+        else if (sittingOnObject != null) {
+            if (sittingOnObject.canThrow) {
+                throwable = true;
+                lr.enabled = true;
+                lr.SetColors(throwTrailColorStart, throwTrailColorEnd);
             }
         }
 
@@ -153,10 +166,17 @@ public class MonsterMove : MonoBehaviour {
 
     IEnumerator calcTrajectory() {
         while (true) {
-            if (startJump) {
+            if (startJump || (throwable && sittingOnObject != null)) {
                 var point = transform.position;
+                if (throwable) {
+                    point = sittingOnObject.transform.position;
+                }
                 var dir = (monster.input.mousePos - point).normalized;
-                var force = monster.bloodTaken / monster.maxBloodPerJump * monster.maxJumpForce;
+                var force = 0f;
+                if (startJump) 
+                    force = monster.bloodTaken / monster.maxBloodPerJump * monster.maxJumpForce;
+                else
+                    force = monster.throwForce;
                 var pointVelocity = dir * force;
                 lr.SetPosition(0, point);
                 var index = 1;

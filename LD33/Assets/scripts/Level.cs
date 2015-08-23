@@ -78,7 +78,6 @@ public class Level : MonoBehaviour {
                     h.gameObject.SetActive(true);
                     h.init(pos);
                     carsOnScene.Add(h);
-                    Debug.Log("added a new car");
                 }
                 yield return new WaitForFixedUpdate();
             }

@@ -102,11 +102,6 @@ public class WorldObject : MonoBehaviour {
 
     public void damage(float value) {
         health -= value;
-        if (explosive) {
-            var expMan = ObjectPool.instance.getExplosionManager();
-            expMan.gameObject.SetActive(true);
-            expMan.init(transform.position);
-        }
         if (health <= 0) {
             destroy();
         }
@@ -115,6 +110,11 @@ public class WorldObject : MonoBehaviour {
     public void destroy() {
         var amount = (int)Random.Range(7f, 14f);
         if (isAlive) {
+            if (explosive) {
+                var expMan = ObjectPool.instance.getExplosionManager();
+                expMan.gameObject.SetActive(true);
+                expMan.init(transform.position);
+            }
             for (var i = 0; i < amount; ++i) {
                 var b = ObjectPool.instance.getBlood();
                 b.gameObject.SetActive(true);

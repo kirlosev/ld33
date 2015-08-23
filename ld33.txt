@@ -26,14 +26,19 @@ what does "monster" means?
 TODO : 
 [ ] DESIGN : session loop : start, jump, throw, collect blood, stay alive as long as possible. 
     at a certain point of city destruction - beat iron man by throwing a stuff in his face
-[ ] DESIGN : TIMER - how long session is working
-[ ] DESIGN : military things
+[X]     . menu
+[X]     . start game
+[ ]     . game over
+[ ]     . pause
+[ ]     . reset game
+[X] DESIGN : TIMER - how long session is working
+[X] DESIGN : military things
 [X]     . helicopter
 [X]     . tank
 [X]     . rockets
 [X]     . bullets
-[ ]     . iron man - boss ? just kidding????
-[ ] DESIGN : humanity
+[/]     . iron man - boss ? just kidding????
+[X] DESIGN : humanity
 [X]     . people
 [X]     . cars
 [X] GAMEPLAY : throw world object
@@ -47,27 +52,28 @@ TODO :
 [X] LOGIC : rocket
 [X] LOGIC : blood amount
 [X] LOGIC : camera bounds for movement;
-[ ] LOGIC : parallax
+[X] LOGIC : parallax
 [X] LOGIC : military shooting rockets and bullets
+[X] LOGIC : hitting a monster
 [X] GRAPHICS : draw a background (objects for parallax)
-[.] GRAPHICS : monster with animations
+[X] GRAPHICS : monster with animations
 [X] GRAPHICS : humans
 [X] GRAPHICS : cars
 [X] GRAPHICS : tank
 [X] GRAPHICS : helicopter
 [X] GRAPHICS : explosions
 [X] GRAPHICS : smoke
-[ ] GRAPHICS : more skyscrappers
-[ ] GRAPHICS : decals for blood and explosions
+[X] GRAPHICS : more skyscrappers
+[X] GRAPHICS : decals for blood and explosions
 [X] GRAPHICS : jump trajectory
 [ ] GRAPHICS : blood bar
 [ ] GRAPHICS : jump bar
 [ ] GRAPHICS : health bar
 [ ] GRAPHICS : UI logo
-[ ] GRAPHICS : destroyed world objects
-[ ] LEVEL : static objects
-[ ]     skyscrapers
-[ ]     park
+[/] GRAPHICS : destroyed world objects
+[X] LEVEL : static objects
+[X]     skyscrapers
+[X]     park
 [^] LEVEL : generation:
 [X]     humans
 [X]     cars
@@ -79,12 +85,10 @@ TODO :
 [X] SOUNDS : explosion sound
 [X] UI : blood counter
 [X] UI : jumping direction
-[ ] UI : throwing direction
+[X] UI : throwing direction
 [X] UI : health
-[ ] UI : menu
+[X] UI : menu
 [X] AI : cars
 [^] AI : helicopter
 [^] AI : tank
 [X] AI : humans
-
-NAME! JUMIUS ? 

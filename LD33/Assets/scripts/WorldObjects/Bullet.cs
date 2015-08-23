@@ -20,6 +20,11 @@ public class Bullet : MonoBehaviour {
             damage();
         }
 
+        if (checkPlayer()) {
+            hit.collider.GetComponent<Monster>().damage(10f);
+            damage();
+        }
+
         transform.position += velocity * moveSpeed * Time.deltaTime;
         var angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
@@ -36,6 +41,12 @@ public class Bullet : MonoBehaviour {
     bool checkGround() {
         var dir = velocity.magnitude > 0 ? velocity.normalized : -1 * (Vector3)hit.normal;
         hit = Physics2D.Raycast(transform.position, dir, size.y, Game.instance.groundLayer);
+        return hit;
+    }
+
+    bool checkPlayer() {
+        var dir = velocity.magnitude > 0 ? velocity.normalized : -1 * (Vector3)hit.normal;
+        hit = Physics2D.Raycast(transform.position, dir, size.y, Game.instance.playerLayer);
         return hit;
     }
 
