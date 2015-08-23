@@ -26,14 +26,16 @@ what does "monster" means?
 TODO : 
 [ ] DESIGN : session loop : start, jump, throw, collect blood, stay alive as long as possible. 
     at a certain point of city destruction - beat iron man by throwing a stuff in his face
+[ ] DESIGN : TIMER - how long session is working
 [ ] DESIGN : military things
 [X]     . helicopter
 [X]     . tank
 [X]     . rockets
 [ ]     . iron man - boss ? just kidding????
 [ ] DESIGN : humanity
-[ ]     . people
+[X]     . people
 [X]     . cars
+
 [X] GAMEPLAY : throw world object
 [X] GAMEPLAY : jumping on the face of the building (not on the side) ?
 [X] GAMEPLAY : depending jump force of duration of mouse btn pressing and blood amount
@@ -41,33 +43,32 @@ TODO :
 [X] LOGIC : explosions
 [X] LOGIC : smoke
 [X] LOGIC : camera shake
-[ ] LOGIC : bullets
-[ ] LOGIC : AI for humans
-[ ] LOGIC : AI for military
+[.] LOGIC : bullets
+[ ] LOGIC : rocket
 [X] LOGIC : blood amount
 [ ] LOGIC : camera bounds for movement;
 [ ] LOGIC : parallax
-[ ] LOGIC : rocket movement improvments
 [ ] LOGIC : military shooting rockets and bullets
 [ ]     .
 [X] GRAPHICS : draw a background (objects for parallax)
 [ ] GRAPHICS : monster with animations
 [ ]     .
-[ ] GRAPHICS : humans
+[X] GRAPHICS : humans
 [X] GRAPHICS : cars
-[X] GRAPHICS : military machines
-[ ]     . 
+[X] GRAPHICS : tank
+[X] GRAPHICS : helicopter
 [X] GRAPHICS : explosions
 [X] GRAPHICS : smoke
 [ ] GRAPHICS : more skyscrappers
 [ ] GRAPHICS : decals for blood and explosions
-[ ] GRAPHICS : jump trajectory
+[X] GRAPHICS : jump trajectory
 [ ] GRAPHICS : blood bar
 [ ] GRAPHICS : jump bar
 [ ] GRAPHICS : health bar
 [ ] GRAPHICS : UI logo
 [ ] GRAPHICS : destroyed world objects
-[ ] LEVEL : create a level
+[ ] LEVEL : make it!
+[.] LEVEL : generation enemies, humans and cars
 [ ] SOUNDS : jump sound
 [ ] SOUNDS : landing sound
 [ ] SOUNDS : killing a human sound
@@ -77,7 +78,7 @@ TODO :
 [ ] UI : throwing direction
 [X] UI : health
 [ ] UI : menu
-[ ] AI : cars
-[ ] AI : helicopter
-[ ] AI : tank
-[ ] AI : humans
+[X] AI : cars
+[^] AI : helicopter
+[^] AI : tank
+[X] AI : humans

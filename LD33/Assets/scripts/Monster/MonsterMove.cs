@@ -124,6 +124,7 @@ public class MonsterMove : MonoBehaviour {
                 previousObject = sittingOnObject;
                 sittingOnObject = null;
                 transform.SetParent(null);
+                transform.localScale = Vector3.one;
                 inAir = true;
             }
         }
@@ -137,6 +138,16 @@ public class MonsterMove : MonoBehaviour {
                 var angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg - 90f;
                 transform.rotation = Quaternion.Euler(0f, 0f, angle);
             }
+        }
+
+        if (transform.position.x > Game.instance.rightTopCorner.position.x) {
+            var repos = transform.position;
+            repos.x = Game.instance.leftBottomCorner.position.x;
+            transform.position = repos;
+        } else if (transform.position.x < Game.instance.leftBottomCorner.position.x) {
+            var repos = transform.position;
+            repos.x = Game.instance.rightTopCorner.position.x;
+            transform.position = repos;
         }
     }
 

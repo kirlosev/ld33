@@ -10,9 +10,9 @@ public class Game : MonoBehaviour {
     public LayerMask projectilesLayer = 1 << 12;
     public Monster monster;
     public float gravity = -9f;
-    public Blood bloodInstance;
     public AudioSource sfxSound;
     public CameraMove gameplayCam;
+    public Transform leftBottomCorner, rightTopCorner;
 
     void Awake() {
         instance = this;

@@ -102,14 +102,16 @@ public class WorldObject : MonoBehaviour {
     }
 
     public void destroy() {
-        var amount = 10;
+        var amount = (int)Random.Range(7f, 14f);
         if (isAlive) {
             for (var i = 0; i < amount; ++i) {
-                var b = Instantiate(Game.instance.bloodInstance, transform.position, Quaternion.identity) as Blood;
+                var b = ObjectPool.instance.getBlood();
+                b.gameObject.SetActive(true);
+                b.enabled = true;
                 b.init((Vector3)hit.normal
                         + Vector3.right * Random.Range(-0.2f, 0.2f) * Mathf.Sign(hit.normal.x)
                         + Vector3.up * Random.Range(-0.2f, 0.2f) * Mathf.Sign(hit.normal.y),
-                        (amount * 10 - i));
+                        (amount * 5 - i));
             }
         }
         isAlive = false;
@@ -127,5 +129,12 @@ public class WorldObject : MonoBehaviour {
         var tmp = transform.localScale;
         tmp.x *= -1f;
         transform.localScale = tmp;
+    }
+
+    public virtual void init(Vector3 pos) {
+        transform.position = pos;
+        isAlive = true;
+        health = maxHealth;
+        isThrown = false;
     }
 }

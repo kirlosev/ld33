@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 5fa0cdecc03ce374bafca7e19466e6c2
-timeCreated: 1440320851
+timeCreated: 1440328529
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -35,6 +35,7 @@ TextureImporter:
     21300056: car2_1
     21300058: car3_0
     21300060: car3_1
+    21300062: bullet_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -387,6 +388,16 @@ TextureImporter:
         y: 0
         width: 32
         height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 97
+        width: 9
+        height: 9
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

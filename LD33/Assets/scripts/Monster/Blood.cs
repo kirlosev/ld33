@@ -9,7 +9,6 @@ public class Blood : MonoBehaviour {
 
     void Awake() {
         size = gameObject.GetComponent<Collider2D>().bounds.extents;
-        isMoving = true;
     }
 
     void Update() {
@@ -19,6 +18,7 @@ public class Blood : MonoBehaviour {
             if (reflectedDir.magnitude < 0.1f) {
                 velocity = Vector3.zero;
                 isMoving = false;
+                GetComponent<Blood>().enabled = false;
             }
             else velocity = reflectedDir;
         }
@@ -33,6 +33,7 @@ public class Blood : MonoBehaviour {
     }
 
     public void init(Vector3 dir, float force) {
+        isMoving = true;
         velocity = dir * force;
     }
 

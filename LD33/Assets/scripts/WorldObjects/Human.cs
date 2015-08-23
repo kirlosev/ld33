@@ -11,9 +11,6 @@ public class Human : WorldObject {
     public void Start() {
         base.Start();
         target = Game.instance.monster;
-        moveSpeed += Random.Range(-0.5f, 0.5f);
-        velocity = Vector3.right * moveSpeed * Mathf.Sign(Random.Range(-1f, 1f));
-        StartCoroutine(animate());
     }
 
     public override void calcVelocity() {
@@ -38,5 +35,18 @@ public class Human : WorldObject {
             sr.sprite = animSprite[i++ % animSprite.Length];
             yield return new WaitForSeconds(1f / animSpeed);
         }
+    }
+
+    public override void init(Vector3 pos) {
+        base.init(pos);
+        moveSpeed += Random.Range(-0.5f, 0.5f);
+        if (Mathf.Abs(Game.instance.leftBottomCorner.position.x - Game.instance.monster.transform.position.x)
+                    > Mathf.Abs(Game.instance.rightTopCorner.position.x - Game.instance.monster.transform.position.x)) {
+            velocity = Vector3.right * moveSpeed;
+        }
+        else {
+            velocity = Vector3.right * -1 * moveSpeed;
+        }
+        StartCoroutine(animate());
     }
 }

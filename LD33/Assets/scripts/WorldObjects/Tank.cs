@@ -10,9 +10,7 @@ public class Tank : WorldObject {
 
     public void Start() {
         base.Start();
-        moveSpeed += Random.Range(-0.5f, 0.5f);
         target = Game.instance.monster;
-        StartCoroutine(animate());
     }
 
     public override void calcVelocity() {
@@ -40,5 +38,11 @@ public class Tank : WorldObject {
             sr.sprite = animSprite[i++ % animSprite.Length];
             yield return new WaitForSeconds(1f / animSpeed);
         }
+    }
+
+    public override void init(Vector3 pos) {
+        base.init(pos);
+        moveSpeed += Random.Range(-0.5f, 0.5f);
+        StartCoroutine(animate());
     }
 }

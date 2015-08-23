@@ -10,8 +10,6 @@ public class Helicopter : WorldObject {
 
     public void Start() {
         base.Start();
-        target = Game.instance.monster;
-        StartCoroutine(animate());
     }
 
     public override void calcVelocity() {
@@ -40,5 +38,11 @@ public class Helicopter : WorldObject {
             sr.sprite = animSprite[i++ % animSprite.Length];
             yield return new WaitForSeconds(1f / animSpeed);
         }
+    }
+
+    public override void init(Vector3 pos) {
+        base.init(pos);
+        target = Game.instance.monster;
+        StartCoroutine(animate());
     }
 }
