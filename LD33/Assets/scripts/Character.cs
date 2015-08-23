@@ -17,6 +17,7 @@ public class Character : MonoBehaviour {
 
     public virtual void damage(float value) {
         health -= value;
+        // TODO : damage sprite
         if (health <= 0) {
             destroy();
         }

@@ -5,16 +5,20 @@ public class Blood : MonoBehaviour {
     public Vector3 size;
     Vector3 velocity;
     RaycastHit2D hit;
+    public bool isMoving = true;
 
     void Awake() {
         size = gameObject.GetComponent<Collider2D>().bounds.extents;
+        isMoving = true;
     }
 
     void Update() {
+        if (!isMoving) return;
         if (checkGround()) {
             var reflectedDir = 0.38f * (velocity - 2 * Vector3.Dot(velocity, hit.normal) * (Vector3)hit.normal);
             if (reflectedDir.magnitude < 0.1f) {
                 velocity = Vector3.zero;
+                isMoving = false;
             }
             else velocity = reflectedDir;
         }

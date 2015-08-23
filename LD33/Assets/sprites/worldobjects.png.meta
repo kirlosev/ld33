@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 5fa0cdecc03ce374bafca7e19466e6c2
-timeCreated: 1440251312
+timeCreated: 1440278220
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -9,6 +9,8 @@ TextureImporter:
     21300004: worldobjects_2
     21300006: worldobjects_3
     21300008: worldobjects_4
+    21300010: worldobjects_5
+    21300012: worldobjects_6
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -58,51 +60,71 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 10
+        y: 42
         width: 32
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: worldobjects_1
       rect:
         serializedVersion: 2
         x: 34
-        y: 24
+        y: 56
         width: 4
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: worldobjects_2
       rect:
         serializedVersion: 2
         x: 41
-        y: 24
+        y: 56
         width: 6
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: worldobjects_3
       rect:
         serializedVersion: 2
         x: 49
-        y: 25
+        y: 56
         width: 6
-        height: 7
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: worldobjects_4
       rect:
         serializedVersion: 2
         x: 58
-        y: 24
+        y: 56
         width: 4
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: worldobjects_5
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 20
+        width: 23
+        height: 9
+      alignment: 9
+      pivot: {x: .300000012, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: worldobjects_6
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 10
+        width: 23
+        height: 9
+      alignment: 9
+      pivot: {x: .300000012, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

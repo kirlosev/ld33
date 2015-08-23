@@ -26,44 +26,45 @@ what does "monster" means?
 TODO : 
 [ ] DESIGN : session loop : start, jump, throw, collect blood, stay alive as long as possible. 
     at a certain point of city destruction - beat iron man by throwing a stuff in his face
-[ ] DESIGN : balancing!
 [ ] DESIGN : military things
 [ ]     . helicopter
 [ ]     . tank
-[ ]     . rockets
+[X]     . rockets
 [ ]     . iron man - boss ? just kidding????
 [ ] DESIGN : humanity
 [ ]     . people
 [ ]     . cars
-[ ] GAMEPLAY : punch or throw world object ?
+[X] GAMEPLAY : throw world object
 [X] GAMEPLAY : jumping on the face of the building (not on the side) ?
-[ ] GAMEPLAY : depending jump force of duration of mouse btn pressing and blood amount
-[ ] GAMEPLAY : moving a monster by WASD or something like that ? meh
-[ ] LOGIC : instantiating way too much blood particles whem sittingOnObject still != null
+[.] GAMEPLAY : depending jump force of duration of mouse btn pressing and blood amount
+[X] LOGIC : instantiating way too much blood particles whem sittingOnObject still != null
+[X] LOGIC : explosions
+[X] LOGIC : smoke
+[X] LOGIC : camera shake
+[ ] LOGIC : AI for humans
+[ ] LOGIC : AI for military
+[ ] LOGIC : blood amount
+[ ] LOGIC : camera bounds for movement;
+[ ] LOGIC : parallax
+[ ]     .
 [X] GRAPHICS : draw a background (objects for parallax)
 [ ] GRAPHICS : monster with animations
 [ ]     .
 [ ] GRAPHICS : humans
 [ ] GRAPHICS : military machines
 [ ]     . 
-[ ] LOGIC : AI for military
-[ ]     .
+[X] GRAPHICS : explosions
+[X] GRAPHICS : smoke
+[ ] GRAPHICS : more skyscrappers
+[ ] GRAPHICS : decals for blood and explosions
+[ ] GRAPHICS : jump trajectory
+[ ] LEVEL : create a level
 [ ] SOUNDS : jump sound
 [ ] SOUNDS : landing sound
 [ ] SOUNDS : killing a human sound
-[ ] SOUNDS : explosion sound
-[ ] LOGIC : explosions
-[ ] GRAPHICS : explosions
-[ ] LOGIC : smoke
-[ ] GRAPHICS : smoke
-[ ] GRAPHICS : more skyscrappers
-[ ] LOGIC : AI for humans
+[X] SOUNDS : explosion sound
 [ ] UI : blood counter
 [ ] UI : jumping direction
 [ ] UI : throwing direction
 [ ] UI : health
 [ ] UI : menu
-[ ] LEVEL : generating a level
-[ ] GRAPHICS : decals for blood and explosions
-[ ] GRAPHICS : jump trajectory
-[ ] LOGIC : camera shake

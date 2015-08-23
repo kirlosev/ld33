@@ -40,6 +40,9 @@ public class WorldObject : MonoBehaviour {
                 isThrown = false;
             }
             else velocity = reflectedDir;
+            if (hit.collider.GetComponent<Rocket>() != null) {
+                hit.collider.GetComponent<Rocket>().damage(1f);
+            }
             Instantiate(expManager, transform.position, Quaternion.identity);
         }
 
@@ -53,7 +56,7 @@ public class WorldObject : MonoBehaviour {
 
     bool checkGround() {
         var dir = velocity.magnitude > 0 ? velocity.normalized : -1 * (Vector3)hit.normal;
-        hit = Physics2D.Raycast(transform.position, dir, size.y, Game.instance.groundLayer);
+        hit = Physics2D.Raycast(transform.position, dir, size.y, Game.instance.groundLayer | Game.instance.projectilesLayer);
         return hit;
     }
 
