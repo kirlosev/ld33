@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[ExecuteInEditMode]
 public class Ground : MonoBehaviour {
     public MeshRenderer mr;
     public MeshFilter mf;
@@ -13,7 +12,8 @@ public class Ground : MonoBehaviour {
     public bool underGround = false;
 
     void Awake() {
-        mesh = new Mesh();
+        if (mesh == null)
+            mesh = new Mesh();
         mf.sharedMesh = mesh;
         mr.sharedMaterial = material;
         var verts = new Vector3[4];

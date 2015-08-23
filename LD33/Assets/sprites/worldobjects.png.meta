@@ -1,14 +1,14 @@
 fileFormatVersion: 2
 guid: 5fa0cdecc03ce374bafca7e19466e6c2
-timeCreated: 1440315126
+timeCreated: 1440320851
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: helicopter1_0
-    21300002: worldobjects_1
-    21300004: worldobjects_2
-    21300006: worldobjects_3
-    21300008: worldobjects_4
+    21300002: human_0
+    21300004: human_1
+    21300006: human_2
+    21300008: human_3
     21300010: worldobjects_5
     21300012: worldobjects_6
     21300014: helicopter1_1
@@ -17,6 +17,24 @@ TextureImporter:
     21300020: tank_gun
     21300022: tank_0
     21300024: tank_1
+    21300026: human_4
+    21300028: human_5
+    21300030: human_6
+    21300032: human_7
+    21300034: human_8
+    21300036: human_9
+    21300038: human_10
+    21300040: human_11
+    21300042: human_12
+    21300044: human_13
+    21300046: human_14
+    21300048: human_15
+    21300050: car1_0
+    21300052: car1_1
+    21300054: car2_0
+    21300056: car2_1
+    21300058: car3_0
+    21300060: car3_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -40,7 +58,7 @@ TextureImporter:
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -3
-  maxTextureSize: 128
+  maxTextureSize: 256
   textureSettings:
     filterMode: 0
     aniso: 16
@@ -65,48 +83,48 @@ TextureImporter:
     - name: helicopter1_0
       rect:
         serializedVersion: 2
-        x: 64
-        y: 42
+        x: 32
+        y: 106
         width: 32
         height: 14
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: worldobjects_1
+    - name: human_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 56
+        x: 98
+        y: 88
         width: 4
         height: 8
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: worldobjects_2
+    - name: human_1
       rect:
         serializedVersion: 2
-        x: 9
-        y: 56
+        x: 105
+        y: 88
         width: 6
         height: 8
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: worldobjects_3
+    - name: human_2
       rect:
         serializedVersion: 2
-        x: 17
-        y: 56
+        x: 113
+        y: 88
         width: 6
         height: 8
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: worldobjects_4
+    - name: human_3
       rect:
         serializedVersion: 2
-        x: 26
-        y: 56
+        x: 122
+        y: 88
         width: 4
         height: 8
       alignment: 0
@@ -115,8 +133,8 @@ TextureImporter:
     - name: worldobjects_5
       rect:
         serializedVersion: 2
-        x: 41
-        y: 52
+        x: 9
+        y: 116
         width: 23
         height: 9
       alignment: 9
@@ -125,8 +143,8 @@ TextureImporter:
     - name: worldobjects_6
       rect:
         serializedVersion: 2
-        x: 41
-        y: 42
+        x: 9
+        y: 106
         width: 23
         height: 9
       alignment: 9
@@ -135,8 +153,8 @@ TextureImporter:
     - name: helicopter1_1
       rect:
         serializedVersion: 2
-        x: 96
-        y: 42
+        x: 64
+        y: 106
         width: 32
         height: 14
       alignment: 0
@@ -145,8 +163,8 @@ TextureImporter:
     - name: helicopter2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 11
+        x: 96
+        y: 107
         width: 32
         height: 13
       alignment: 0
@@ -155,8 +173,8 @@ TextureImporter:
     - name: helicopter2_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 11
+        x: 0
+        y: 75
         width: 32
         height: 13
       alignment: 0
@@ -165,18 +183,18 @@ TextureImporter:
     - name: tank_gun
       rect:
         serializedVersion: 2
-        x: 64
-        y: 26
+        x: 32
+        y: 90
         width: 17
         height: 5
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 5
+      pivot: {x: 1, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: tank_0
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 32
+        y: 64
         width: 31
         height: 18
       alignment: 0
@@ -185,10 +203,190 @@ TextureImporter:
     - name: tank_1
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
+        x: 64
+        y: 64
         width: 31
         height: 18
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: human_4
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 80
+        width: 4
+        height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: human_5
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 80
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: human_6
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 80
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: human_7
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 80
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: human_8
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 72
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: human_9
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 72
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: human_10
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 72
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: human_11
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 72
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: human_12
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 64
+        width: 4
+        height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: human_13
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 64
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: human_14
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 64
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: human_15
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 64
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: car1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 19
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: car1_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 19
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: car2_0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 19
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: car2_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 19
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: car3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: car3_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 16
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

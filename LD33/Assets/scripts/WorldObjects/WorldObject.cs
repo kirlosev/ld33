@@ -25,6 +25,8 @@ public class WorldObject : MonoBehaviour {
     }
 
     void Update() {
+        if (Mathf.Sign(transform.localScale.x) != Mathf.Sign(velocity.x))
+            flipScale();
         if (checkGround()) {
             inAir = false;
             if (!isAlive) {
@@ -65,7 +67,6 @@ public class WorldObject : MonoBehaviour {
 
         transform.position += velocity * Time.deltaTime;
         if (inAir) {
-            Debug.Log("gravity");
             velocity.y += Game.instance.gravity * Time.deltaTime;
         }
     }
@@ -120,5 +121,11 @@ public class WorldObject : MonoBehaviour {
     public void throwObject(Vector3 dir, float force) {
         isThrown = true;
         velocity = dir.normalized * force;
+    }
+
+    public void flipScale() {
+        var tmp = transform.localScale;
+        tmp.x *= -1f;
+        transform.localScale = tmp;
     }
 }

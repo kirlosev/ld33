@@ -28,12 +28,12 @@ TODO :
     at a certain point of city destruction - beat iron man by throwing a stuff in his face
 [ ] DESIGN : military things
 [X]     . helicopter
-[.]     . tank
+[X]     . tank
 [X]     . rockets
 [ ]     . iron man - boss ? just kidding????
 [ ] DESIGN : humanity
 [ ]     . people
-[ ]     . cars
+[X]     . cars
 [X] GAMEPLAY : throw world object
 [X] GAMEPLAY : jumping on the face of the building (not on the side) ?
 [X] GAMEPLAY : depending jump force of duration of mouse btn pressing and blood amount
@@ -41,18 +41,21 @@ TODO :
 [X] LOGIC : explosions
 [X] LOGIC : smoke
 [X] LOGIC : camera shake
+[ ] LOGIC : bullets
 [ ] LOGIC : AI for humans
 [ ] LOGIC : AI for military
 [X] LOGIC : blood amount
 [ ] LOGIC : camera bounds for movement;
 [ ] LOGIC : parallax
 [ ] LOGIC : rocket movement improvments
+[ ] LOGIC : military shooting rockets and bullets
 [ ]     .
 [X] GRAPHICS : draw a background (objects for parallax)
 [ ] GRAPHICS : monster with animations
 [ ]     .
 [ ] GRAPHICS : humans
-[ ] GRAPHICS : military machines
+[X] GRAPHICS : cars
+[X] GRAPHICS : military machines
 [ ]     . 
 [X] GRAPHICS : explosions
 [X] GRAPHICS : smoke
@@ -63,6 +66,7 @@ TODO :
 [ ] GRAPHICS : jump bar
 [ ] GRAPHICS : health bar
 [ ] GRAPHICS : UI logo
+[ ] GRAPHICS : destroyed world objects
 [ ] LEVEL : create a level
 [ ] SOUNDS : jump sound
 [ ] SOUNDS : landing sound
@@ -73,3 +77,7 @@ TODO :
 [ ] UI : throwing direction
 [X] UI : health
 [ ] UI : menu
+[ ] AI : cars
+[ ] AI : helicopter
+[ ] AI : tank
+[ ] AI : humans
