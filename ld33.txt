@@ -96,9 +96,9 @@ TODO :
 [X] AI : helicopter
 [^] AI : tank
 [X] AI : humans
-[ ] Remove Debug stuff from release
-[ ] Readme
-[ ] Screenshots
-[ ] Text
+[X] Remove Debug stuff from release
+[X] Readme
+[X] Screenshots
+[X] Text
 [ ] Post-Mortem
 [ ] Timelapse

@@ -10,6 +10,8 @@ Theme : "You are the monster"
 
 I was afraid of making something ambitious. So I decided to make a simple game, but polish it as much as I can in 48 hours.
 
+I used a font called "SF_Archery_Black"
+
 Controls : 
     click and hold LMB to increase a jumping force
     release LMB to make a jump
@@ -17,6 +19,8 @@ Controls :
     you need a blood from humanity to increase health and make big jumps
 
 Target : survive as long as possible
+
+I don't have an ability to test Linux and Mac versions. Let me know if these are not working.
 
 If you have any questions - check out contact information on my website or just e-mail me.
 Have fun!
