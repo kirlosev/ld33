@@ -7,6 +7,8 @@ public class Helicopter : WorldObject {
     public float animSpeed = 12;
     public float moveSpeed = 4f;
     Character target;
+    public TankShoot shootBullet;
+    public HelicopterShoot shootRocket;
 
     public void Start() {
         base.Start();
@@ -43,6 +45,13 @@ public class Helicopter : WorldObject {
 
     public override void init(Vector3 pos) {
         base.init(pos);
+        if (shootRocket != null) {
+            shootRocket.init();
+        }
+        else if (shootBullet != null) {
+            shootBullet.init();
+        }
+
         StartCoroutine(animate());
     }
 }

@@ -33,17 +33,16 @@ public class WorldObject : MonoBehaviour {
                 velocity = Vector3.zero;
             }
             if (isThrown) {
-                Debug.DrawLine(transform.position, hit.point, Color.magenta);
                 var reflectedDir = 0.62f * (velocity - 2 * Vector3.Dot(velocity, hit.normal) * (Vector3)hit.normal);
                 if (reflectedDir.magnitude < 0.1f || (Vector3)hit.normal == Vector3.up) {
                     velocity = Vector3.zero;
                     isThrown = false;
-                    damage(5f); // TODO : change to something
+                    damage(5f);
                 }
                 else {
                     velocity = reflectedDir;
                 }
-                if (hit.collider.GetComponent<Rocket>() != null) { // TODO : make rocket extents from WorldObject and move this shit down
+                if (hit.collider.GetComponent<Rocket>() != null) {
                     hit.collider.GetComponent<Rocket>().damage(1f);
                 }
             }

@@ -28,13 +28,6 @@ public class Game : MonoBehaviour {
         return Time.time - startGameTime;
     }
     
-    void Update() {
-        // TODO : remove from release
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            Application.LoadLevel(Application.loadedLevel);
-        }
-    }
-    
     public void playSfx(AudioClip sfxClip) {
         var pitch = 0.9f + Random.Range(-0.5f, 0.5f);
         sfxSound.pitch = pitch;

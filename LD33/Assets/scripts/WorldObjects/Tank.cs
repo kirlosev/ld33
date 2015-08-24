@@ -7,7 +7,7 @@ public class Tank : WorldObject {
     public float animSpeed = 12;
     public float moveSpeed = 4f;
     Character target;
-    TankShoot shoot;
+    public TankShoot shoot;
 
     public void Start() {
         base.Start();

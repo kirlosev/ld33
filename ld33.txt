@@ -74,11 +74,11 @@ TODO :
 [X] LEVEL : static objects
 [X]     skyscrapers
 [X]     park
-[^] LEVEL : generation:
+[X] LEVEL : generation:
 [X]     humans
 [X]     cars
-[.]     helicopters
-[.]     tanks
+[X]     helicopters
+[X]     tanks
 [X] SOUNDS : jump sound
 [X] SOUNDS : landing sound
 [X] SOUNDS : killing a human sound
@@ -93,9 +93,10 @@ TODO :
 [X] UI : health
 [X] UI : menu
 [X] AI : cars
-[^] AI : helicopter
+[X] AI : helicopter
 [^] AI : tank
 [X] AI : humans
+[ ] Remove Debug stuff from release
 [ ] Readme
 [ ] Screenshots
 [ ] Text

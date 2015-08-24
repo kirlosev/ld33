@@ -13,12 +13,13 @@ public class TankShoot : MonoBehaviour {
 
     void Start() {
         gunSize = gun.GetComponent<SpriteRenderer>().bounds.extents;
-        // TODO : debug
-        init();
     }
 
     public void init() {
         target = Game.instance.monster;
+        shootPeriod += Random.Range(0f, 3f);
+        bulletsPerShoot += (int)Random.Range(-2f, 0f);
+        delayBetweenBullets += Random.Range(0.1f, 0.5f);
         StartCoroutine(shoot());
     }
 
@@ -34,13 +35,13 @@ public class TankShoot : MonoBehaviour {
 
     IEnumerator shoot() {
         while (parent.isAlive) {
+            yield return new WaitForSeconds(shootPeriod);
             for (var i = 0; i < bulletsPerShoot; ++i) {
                 var b = ObjectPool.instance.getBullet();
                 b.gameObject.SetActive(true);
                 b.init(gun.transform.position - gun.transform.right * gunSize.x * 2f, targetDir);
                 yield return new WaitForSeconds(delayBetweenBullets);
             }
-            yield return new WaitForSeconds(shootPeriod);
         }
     }
 }

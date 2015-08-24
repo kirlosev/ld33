@@ -7,7 +7,6 @@ public class MonsterBlood : MonoBehaviour {
     void FixedUpdate() {
         var bloodParts = checkBlood();
         for (var i = 0; i < bloodParts.Length; ++i) {
-            // TODO : increase specs
             takeBlood();
             bloodParts[i].GetComponent<Blood>().destroy();
         }
@@ -19,7 +18,7 @@ public class MonsterBlood : MonoBehaviour {
 
     public void takeBlood() {
         monster.blood = Mathf.Clamp(monster.blood + 2, monster.maxBloodPerJump / 2f, monster.maxBlood);
-        monster.health = Mathf.Clamp(monster.health + 2, 0f, monster.maxHealth);
+        monster.health = Mathf.Clamp(monster.health + 1, 0f, monster.maxHealth);
         monster.sounder.playSound(monster.takeBloodSound);
     }
 

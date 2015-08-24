@@ -44,27 +44,8 @@ public class MonsterMove : MonoBehaviour {
             monster.bloodTaken = monster.bloodManager.reserveBlood(targetBloodTake);
         }
 
-        if (monster.input.jumpReleased && !inAir) {
-            var dir = (monster.input.clickPos - transform.position).normalized;
-            monster.bloodManager.getBlood(monster.bloodTaken);
-            jumpForce = monster.bloodTaken / monster.maxBloodPerJump * monster.maxJumpForce;
-            velocity = dir * jumpForce;
-            targetPoint = monster.input.clickPos;
-            minTargetDistance = Mathf.Infinity;
-            var col = Physics2D.OverlapCircle(monster.input.clickPos, 0.1f, Game.instance.skyscraperLayer);
-            if (col != null) {
-                targetSkyscraper = col.GetComponent<Skyscraper>();
-            }
-            else
-                targetSkyscraper = null;
-            sittingOnObject = null;
-            transform.SetParent(null);
-            inAir = true;
-            startJump = false;
-            lr.enabled = false;
-            monster.bloodTaken = 0f;
-            monster.sounder.playSound(monster.jumpSound);
-        }
+        
+        // 
 
         if (checkGround()) {
             if (inAir) {
@@ -124,7 +105,29 @@ public class MonsterMove : MonoBehaviour {
             }
             previousObject = null;
         }
-        
+
+        if (monster.input.jumpReleased && !inAir) {
+            var dir = (monster.input.clickPos - transform.position).normalized;
+            monster.bloodManager.getBlood(monster.bloodTaken);
+            jumpForce = monster.bloodTaken / monster.maxBloodPerJump * monster.maxJumpForce;
+            velocity = dir * jumpForce;
+            targetPoint = monster.input.clickPos;
+            minTargetDistance = Mathf.Infinity;
+            var col = Physics2D.OverlapCircle(monster.input.clickPos, 0.1f, Game.instance.skyscraperLayer);
+            if (col != null) {
+                targetSkyscraper = col.GetComponent<Skyscraper>();
+            }
+            else
+                targetSkyscraper = null;
+            sittingOnObject = null;
+            transform.SetParent(null);
+            inAir = true;
+            startJump = false;
+            lr.enabled = false;
+            monster.bloodTaken = 0f;
+            monster.sounder.playSound(monster.jumpSound);
+        }
+
         if (monster.input.throwObject && sittingOnObject != null) {
             if (sittingOnObject.canThrow) {
                 var dir = (monster.input.clickPos - transform.position).normalized;
@@ -198,7 +201,7 @@ public class MonsterMove : MonoBehaviour {
     }
 
     bool checkGround() {
-        var dir = velocity.magnitude > 0 ? velocity.normalized : -1 * (Vector3)hit.normal;
+        var dir = -Vector3.up;
         hit = Physics2D.Raycast(transform.position, dir, monster.size.x, Game.instance.groundLayer);
         return hit;
     }
