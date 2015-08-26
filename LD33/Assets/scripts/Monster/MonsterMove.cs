@@ -75,6 +75,7 @@ public class MonsterMove : MonoBehaviour {
                 }
                 else {
                     transform.SetParent(sittingOnObject.transform);
+                    transform.localScale = Vector3.one;
                 }
             }
         }
@@ -121,6 +122,7 @@ public class MonsterMove : MonoBehaviour {
                 targetSkyscraper = null;
             sittingOnObject = null;
             transform.SetParent(null);
+            transform.localScale = Vector3.one;
             inAir = true;
             startJump = false;
             lr.enabled = false;
